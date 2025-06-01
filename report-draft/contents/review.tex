@@ -48,25 +48,16 @@
 \paragraph{} This makes a hierarchical approach and a broad application in a developing economy. While the core optimization models are deterministic MILPs, the overall framework considers a wider range of product types. The separation of decisions into levels is different from the other papers in this cluster.
 
 \subsubsection{Qian, Han, Da, \& Stokes (2012): Reverse logistics network design model based on e-commerce}
-\paragraph{Main Objective} To study and propose a reverse logistics network design model specifically for e-commerce, aiming to minimize overall logistic costs by determining optimal locations for factories, online retailers, and third-party logistics providers (3PLs).
-\paragraph{Methodology} A 0-1 mixed-integer linear programming (0-1MILP) model is proposed. Demand/return determination is a separate step. A case study illustrates the model, solved with Lingo.
-\paragraph{Key Aspects of the Network Design}
-\begin{itemize}
-    \item \textbf{Echelons:} Factories, Online Retailers, 3PLs, Consuming Markets.
-    \item \textbf{Flows:} Forward (factory/3PL $\rightarrow$ online retailer $\rightarrow$ market) and Reverse (market $\rightarrow$ 3PL $\rightarrow$ factory/online retailer).
-    \item \textbf{Decisions:} Which factories, online retailers, and 3PLs to open/use; Flow fractions for demand and returns.
-    \item \textbf{Objective:} Minimize total logistical costs (fixed opening costs + transportation costs for forward/reverse flows).
-    \item \textbf{Constraints:} Flow balance, facility opening logic, capacity limits, minimum return portion to factories.
-\end{itemize}
-\paragraph{Solution Approach} 0-1MILP solved with Lingo. Demand/return quantities from a separate optimal return policy model.
-\paragraph{Key Findings} Model identifies optimal locations/flows. 3PLs centralize returns, routing to online retailers or factories.
-\paragraph{Contributions to Reverse Logistics Network Design}
-\begin{itemize}
-    \item Proposes a 0-1MILP for e-commerce RL, with 3PLs central to return collection.
-    \item Integrates an optimal return policy (determining demand/return quantities) as input.
-    \item Highlights trade-offs in routing returns to online retailers vs. factories via 3PLs.
-\end{itemize}
-\paragraph{Discussion within Cluster:} Qian et al. (2012) bring a specific application context (e-commerce) to the deterministic modeling cluster. Their 0-1MILP focuses on minimizing logistical costs by optimally locating facilities and routing returns. A distinctive feature is the explicit inclusion of 3PLs as central collectors, reflecting a common strategy in e-commerce RL. While demand and return determination is discussed as a separate, potentially uncertainty-laden step, the network design model itself uses these as deterministic inputs.
+
+\paragraph{} Main objective is to study and propose a reverse logistics network design model specifically for e-commerce, aiming to minimize overall logistic costs by determining optimal locations for factories, online retailers, and third-party logistics providers (3PLs).
+
+\paragraph{} A binary MILP model is proposed. Demand/return determination is a separate step. A case study illustrates the model.
+
+\paragraph{} The network design includes echelons such as factories, online retailers, 3PLs, and consuming markets. Flows involve forward flows from factories/3PLs to online retailers to markets, and reverse flows from markets to 3PLs to factories/online retailers. Decisions include which factories, online retailers, and 3PLs to open/use, flow fractions for demand and returns. The objective is to minimize total logistical costs. Constraints include flow balance, facility opening logic, capacity limits, and minimum return portion to factories.
+
+\paragraph{} Model identifies optimal locations/flows. 3PLs centralize returns, routing to online retailers or factories.
+
+\paragraph{} Qian et al. (2012) bring a specific application context (e-commerce) to the deterministic modeling cluster. A distinctive feature is the explicit inclusion of 3PLs as central collectors, reflecting a common strategy in e-commerce RL. While demand and return determination is discussed as a separate, potentially uncertainty-laden step, the network design model itself uses these as deterministic inputs.
 
 \subsubsection{Ferri, Chaves, \& Ribeiro (2015): Reverse logistics network for municipal solid waste management: The inclusion of waste pickers as a Brazilian legal requirement}
 \paragraph{Main Objective} To propose and validate a reverse logistics network model for Municipal Solid Waste (MSW) management in Brazil, maximizing profit while incorporating legal requirements for waste picker inclusion and strategic Material Recovery Facility (MRF) allocation.

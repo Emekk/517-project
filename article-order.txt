@@ -1,4 +1,6 @@
 A) Deterministic Network Design Models
 	1. Jayaraman, Patterson, & Rolland (2003): The design of reverse distribution networks: Models and solution procedures
 	2. Min, Ko, & Ko (2006): A genetic algorithm approach to developing the multi-echelon reverse logistics network for product returns
-	3. 
+	3. Srivastava (2008): Network design for reverse logistics
+	4. Qian, Han, Da, & Stokes (2012): Reverse logistics network design model based on e-commerce
+	5. 
