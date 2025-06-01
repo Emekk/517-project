@@ -112,31 +112,18 @@ The deterministic models reviewed provide essential building blocks for RL netwo
 {\paragraph{TODO: Synthesis of Stochastic Models:}
 The stochastic models in this cluster represent a significant advancement by explicitly incorporating uncertainty, primarily in demand/return quantities (Salema et al., Roghanian \& Pazhoheshfar) or operational times (Lieckens \& Vandaele). They typically optimize an expected value (e.g., expected cost) or ensure probabilistic constraint satisfaction. These models often result in more complex formulations (e.g., MINLPs when queueing is involved) and require sophisticated solution techniques like metaheuristics or specialized algorithms for scenario-based problems. They provide more realistic and potentially more robust network designs compared to deterministic counterparts.}
 
-\subsection{Cluster 3: Robust and Possibilistic Network Design Models}
-When precise probability distributions for uncertain parameters are difficult to obtain, robust optimization and possibilistic programming offer alternative paradigms. Robust optimization seeks solutions that are immune to uncertainty or perform well under worst-case conditions, often without requiring probability data. Possibilistic programming uses fuzzy set theory to model imprecise parameters based on expert judgments.
+\subsection{Robust and Possibilistic Network Design Models}
+\paragraph{} When precise probability distributions for uncertain parameters are difficult to obtain, robust optimization and possibilistic programming offer alternative paradigms. Robust optimization seeks solutions that are immune to uncertainty or perform well under worst-case conditions, often without requiring probability data.
 
 \subsubsection{Ramezani, Bashiri, \& Tavakkoli-Moghaddam (2013): A robust design for a closed-loop supply chain network under an uncertain environment}
-\paragraph{Main Objective} To present a robust design for a multi-product, multi-echelon closed-loop logistic network (CLSCN) where demand and return rates are uncertain (finite set of scenarios), maximizing total profit using a min-max regret criterion.
-\paragraph{Methodology} Deterministic MILP extended to a robust formulation (min-max regret). Solved using a scenario relaxation algorithm.
-\paragraph{Key Aspects of the Network Design}
-\begin{itemize}
-    \item \textbf{Echelons (Forward):} Suppliers, Plants, Distribution Centers, Customers.
-    \item \textbf{Echelons (Reverse):} Customers, Collection Centers, Repair Centers, Disposal Centers. Returns also to Plants (remanufacturing) or Suppliers (recycling). Repaired goods to Distribution Centers.
-    \item \textbf{Flows:} Multi-product.
-    \item \textbf{Decisions (Robust):} Facility location and capacity level selection (plants, distribution, collection, repair centers). (Second-stage flows are scenario-dependent).
-    \item \textbf{Objective (Robust):} Minimize maximum regret ($\delta$) across scenarios. Regret = (Optimal profit under scenario $s$) - (Profit of robust solution under scenario $s$).
-    \item \textbf{Uncertainty:} Demand and return rates are uncertain, modeled via finite scenarios.
-    \item \textbf{Constraints:} Flow balance, facility capacities, max number of open facilities, binary/non-negativity.
-\end{itemize}
-\paragraph{Solution Approach} Scenario relaxation algorithm for min-max regret robust optimization.
-\paragraph{Key Findings} Robust configuration is more reliable (feasible across more scenarios) than deterministic, though potentially less profitable under ideal conditions. Scenario relaxation is computationally superior to extensive form.
-\paragraph{Contributions to Reverse Logistics Network Design}
-\begin{itemize}
-    \item Develops a multi-product, multi-echelon CLSCN model.
-    \item Applies min-max regret robust optimization for demand/return uncertainty.
-    \item Implements scenario relaxation for efficient solution.
-\end{itemize}
-\paragraph{Discussion within Cluster:} This paper exemplifies the robust optimization approach by aiming to minimize the maximum regret, ensuring that the chosen network design performs well relative to the optimal solution under any realized scenario of demand and return rates. A scenario relaxation algorithm is employed to make the problem computationally tractable, which is a common need for robust models dealing with many scenarios. The focus is on creating a reliable network configuration.
+
+\paragraph{} Main objective is to present a robust design for a multi-product, multi-echelon closed-loop logistic network where demand and return rates are uncertain (finite set of scenarios), maximizing total profit using a min-max regret criterion.
+
+\paragraph{} The network design is formulated such that the echelons include suppliers, plants, distribution centers, customers, collection centers, repair centers, and disposal centers. Flows are multi-product, with forward flows from suppliers to plants to distribution centers to customers and reverse flows from customers to collection centers to repair/disposal centers. Decisions include facility location and capacity levels (plants, distribution, collection, repair centers). The objective is to minimize the maximum regret across scenarios (regret = optimal profit under scenario $s$ - profit of robust solution under scenario $s$). Uncertainty is modeled via finite scenarios for demand and return rates. Constraints include flow balance, facility capacities, maximum number of open facilities, binary/non-negativity.
+
+\paragraph{} Robust configuration is more reliable (feasible across more scenarios) than deterministic, though potentially less profitable under ideal conditions. Scenario relaxation is computationally superior to extensive form.
+
+\paragraph{} This paper exemplifies the robust optimization approach by aiming to minimize the maximum regret, ensuring that the chosen network design performs well relative to the optimal solution under any realized scenario of demand and return rates. A scenario relaxation algorithm is used to make the problem computationally solvable.
 
 \subsubsection{Hamidieh \& Fazli-Khalaf (2017): A Possibilistic Reliable and Responsive Closed Loop Supply Chain Network Design Model under Uncertainty}
 \paragraph{Main Objective} To design a bi-objective, reliable, and responsive multi-echelon closed-loop supply chain network (CLSCN) minimizing total network costs and total earliness/tardiness, considering uncertainty (possibilistic programming) and facility disruptions (scenario-based).

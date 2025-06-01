@@ -7,4 +7,5 @@ A) Deterministic Network Design Models
 	6.Salema, Barbosa-Povoa, & Novais (2007): An optimization model for the design of a capacitated multi-product reverse logistics network with uncertainty
 	7. Roghanian & Pazhoheshfar (2014): An optimization model for reverse logistics network under stochastic environment by using genetic algorithm
 	8. Lieckens & Vandaele (2007): Reverse logistics network design with stochastic lead times
-	9. 
+	9. Ramezani, Bashiri, & Tavakkoli-Moghaddam (2013): A robust design for a closed-loop supply chain network under an uncertain environment
+	10. Hamidieh & Fazli-Khalaf (2017): A Possibilistic Reliable and Responsive Closed Loop Supply Chain Network Design Model under Uncertainty
