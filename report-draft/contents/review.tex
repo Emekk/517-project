@@ -126,27 +126,15 @@ The stochastic models in this cluster represent a significant advancement by exp
 \paragraph{} This paper exemplifies the robust optimization approach by aiming to minimize the maximum regret, ensuring that the chosen network design performs well relative to the optimal solution under any realized scenario of demand and return rates. A scenario relaxation algorithm is used to make the problem computationally solvable.
 
 \subsubsection{Hamidieh \& Fazli-Khalaf (2017): A Possibilistic Reliable and Responsive Closed Loop Supply Chain Network Design Model under Uncertainty}
-\paragraph{Main Objective} To design a bi-objective, reliable, and responsive multi-echelon closed-loop supply chain network (CLSCN) minimizing total network costs and total earliness/tardiness, considering uncertainty (possibilistic programming) and facility disruptions (scenario-based).
-\paragraph{Methodology} Multi-objective linear program. Possibilistic programming (triangular fuzzy numbers from expert opinion) for uncertain parameters, converted to crisp equivalent. Scenario-based approach for distribution center disruptions. Solved with epsilon-constraint method.
-\paragraph{Key Aspects of the Network Design}
-\begin{itemize}
-    \item \textbf{Echelons (Forward):} Suppliers (original/recycled raw materials), Plants, Distribution Centers, Customer Zones.
-    \item \textbf{Echelons (Reverse):} Customer Zones, Collection/Inspection Centers, Refurbishing Centers, Recycling Centers, Disposal Centers. Recovered products to Distribution Centers; recycled raw materials to Plants.
-    \item \textbf{Flows:} Single product.
-    \item \textbf{Decisions:} Facility location and capacity level (plants, distribution, recycling centers); Flow quantities (scenario-dependent); Earliness/Tardiness.
-    \item \textbf{Objectives:} 1) Minimize total network costs (fixed opening + variable processing/transport, scenario-weighted). 2) Minimize total weighted earliness/tardiness (scenario-weighted).
-    \item \textbf{Uncertainty \& Reliability:} Possibilistic programming for uncertain costs/demands; Scenario-based disruptions at distribution centers; Min acceptable raw material quality.
-    \item \textbf{Constraints:} Demand satisfaction, flow balance, facility capacities (disruption-adjusted for DCs), quality, binary opening, non-negativity.
-\end{itemize}
-\paragraph{Solution Approach} Possibilistic model converted to crisp. Epsilon-constraint for bi-objective. CPLEX solver.
-\paragraph{Key Findings} Increasing risk-aversion (satisfaction levels) increases costs. Trade-off: cost minimization leads to centralized network, while earliness/tardiness minimization leads to decentralized.
-\paragraph{Contributions to Reverse Logistics Network Design}
-\begin{itemize}
-    \item Bi-objective CLSCN model integrating forward/reverse flows with reliability (disruptions) and responsiveness (earliness/tardiness).
-    \item Employs possibilistic programming for parameter uncertainty based on expert opinion.
-    \item Considers raw material quality.
-\end{itemize}
-\paragraph{Discussion within Cluster:} This work introduces possibilistic programming, which is useful when uncertainty is based on subjective expert knowledge rather than historical data. It models uncertain parameters as triangular fuzzy numbers. A key feature is its bi-objective nature, minimizing both total costs and earliness/tardiness, thus explicitly considering network responsiveness alongside economic efficiency and reliability (through disruption scenarios). The epsilon-constraint method is used to handle the multi-objectives.
 
-\paragraph{Synthesis of Robust and Possibilistic Models:}
-The articles in this cluster address uncertainty when probabilistic information is scarce or unreliable. Robust optimization (Ramezani et al.) focuses on performance guarantees against adversarial or worst-case scenarios, often leading to more conservative but highly reliable designs. Possibilistic programming (Hamidieh \& Fazli-Khalaf) offers a way to incorporate expert-based fuzzy uncertainty. These models are computationally demanding and often require specialized algorithms like scenario relaxation or multi-objective solution techniques. They are particularly valuable for strategic, long-term network design where downside risk protection is paramount.
+\paragraph{} Main objective is to design a bi-objective, reliable, and responsive multi-echelon closed-loop supply chain network minimizing total network costs and total earliness/tardiness, considering uncertainty (possibilistic programming) and facility disruptions (scenario-based).
+
+\paragraph{} A multi-objective possibilistic programming for uncertain parameters, converted to crisp equivalent. Scenario-based approach for distribution center disruptions. Solved with epsilon-constraint method.
+
+\paragraph{} For the network design, echelons include suppliers, plants, distribution centers, customer zones, collection/inspection centers, refurbishing centers, recycling centers, and disposal centers. Flows are single product, with forward flows from suppliers to plants to distribution centers to customer zones and reverse flows from customer zones to collection/inspection centers to refurbishing/recycling/disposal centers. Decisions include facility location and capacity levels, flow quantities, and earliness/tardiness. The objectives are to minimize total network costs and total weighted earliness/tardiness (scenario-weighted). Uncertainty is modeled as triangular fuzzy numbers for costs/demands. Constraints include demand satisfaction, flow balance, facility capacities, quality, binary opening, non-negativity.
+
+\paragraph{} This work uses possibilistic programming, which is useful when uncertainty is based on subjective expert knowledge rather than historical data. It models uncertain parameters as triangular fuzzy numbers. A key feature is its bi-objective nature, minimizing both total costs and earliness/tardiness, thus explicitly considering network responsiveness alongside economic efficiency and reliability (through disruption scenarios).
+
+\textcolor{blue}
+{\paragraph{TODO}
+The articles in this cluster address uncertainty when probabilistic information is scarce or unreliable. Robust optimization (Ramezani et al.) focuses on performance guarantees against adversarial or worst-case scenarios, often leading to more conservative but highly reliable designs. Possibilistic programming (Hamidieh \& Fazli-Khalaf) offers a way to incorporate expert-based fuzzy uncertainty. These models are computationally demanding and often require specialized algorithms like scenario relaxation or multi-objective solution techniques. They are particularly valuable for strategic, long-term network design where downside risk protection is paramount.}
