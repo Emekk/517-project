@@ -1,0 +1,42 @@
+\section{{A robust design for a closed-loop supply chain network under an uncertain environment, Ramezani, M., Bashiri, M., \& Tavakkoli-Moghaddam, R. (2013)}}
+
+\subsection*{Main Objective}
+To present a robust design for a multi-product, multi-echelon, closed-loop logistic network (CLSCN) under an uncertain environment, where demand and return rates are described by a finite set of possible scenarios. The model aims to determine facility locations, capacity levels, and product flows to maximize total profit using a robust optimization approach (min-max regret).
+
+\subsection*{Methodology}
+A deterministic mixed-integer linear programming (MILP) model is first presented for the CLSCN. This is then extended to a robust formulation to handle uncertainty in demand and return rates. The robust optimization approach uses the min-max regret criterion. A scenario relaxation algorithm is employed to solve the robust model, aiming for better computation times compared to the extensive form model.
+
+\subsection*{Key Aspects of the Network Design}
+\begin{itemize}
+    \item \textbf{Echelons (Forward):} Suppliers ($V$), Plants ($I$), Distribution Centers ($J$), Customers ($C$).
+    \item \textbf{Echelons (Reverse):} Customers ($C$, as return origin), Collection Centers ($K$), Repair Centers ($L$), Disposal Centers ($D$). Returned products can also go from collection centers to plants (for remanufacturing) or back to suppliers (for recycling). Repaired products can go from repair centers to distribution centers.
+    \item \textbf{Flows:} Multi-product ($P$) flows through both forward and reverse channels.
+    \item \textbf{Decisions (First-stage/Robust):}
+        \begin{itemize}
+            \item Location and capacity level ($h \in H$) selection for plants ($X_i^h$), distribution centers ($Y_j^h$), collection centers ($Z_k^h$), and repair centers ($W_l^h$).
+        \end{itemize}
+    \item \textbf{Decisions (Second-stage/Scenario-dependent):} Quantities of products shipped between echelons (e.g., $QSP_{vip}$ from supplier $v$ to plant $i$ for product $p$; $QCC_{ckp}$ from customer $c$ to collection center $k$).
+    \item \textbf{Objective (Deterministic):} Maximize total profit (Total Income - Total Cost). Income from sales. Costs include fixed facility opening, manufacturing, operating, inspection, repairing, remanufacturing, recycling, disposal, and transportation.
+    \item \textbf{Objective (Robust):} Minimize the maximum regret ($\delta$) across all scenarios $s \in S$. Regret is $u_s - f_s(Q_s, X_i^h, Y_j^h, Z_k^h, W_l^h)$, where $u_s$ is the optimal profit under scenario $s$ (perfect information) and $f_s(...)$ is the profit of the robust solution under scenario $s$.
+    \item \textbf{Uncertainty:} Demand ($D_{cp}$) and return rates ($RT$) are uncertain and modeled via a finite set of scenarios.
+    \item \textbf{Constraints:} Flow balance at all nodes, capacity limits for all facilities, maximum number of activated locations for each facility type, and binary/non-negativity restrictions.
+\end{itemize}
+
+\subsection*{Solution Approach}
+The robust optimization problem (min-max regret) is solved using a scenario relaxation algorithm. This algorithm iteratively solves a relaxed version of the problem with a subset of scenarios and adds "violating" scenarios (those with high regret) until a robust solution is found or infeasibility is detected.
+
+\subsection*{Key Findings}
+\begin{itemize}
+    \item The robust configuration, while yielding lower profit than the deterministic configuration under ideal conditions, is more reliable as it remains feasible across various demand and return rate scenarios (especially worst-case ones) where the deterministic solution might fail.
+    \item The scenario relaxation algorithm shows superior computational performance compared to solving the extensive form of the robust model, especially as the number of scenarios increases.
+    \item The capacity level and location of the second collection center were identified as key sensitive decisions in the numerical example.
+\end{itemize}
+
+\subsection*{Contributions to Reverse Logistics Network Design}
+\begin{itemize}
+    \item Develops a multi-product, multi-echelon CLSCN model incorporating both forward and reverse flows.
+    \item Applies a robust optimization approach (min-max regret) to handle uncertainty in demand and return rates, which is crucial for strategic network design.
+    \item Implements an efficient scenario relaxation algorithm to solve the robust model, making it practical for problems with a larger number of scenarios.
+    \item Provides insights into the trade-off between profitability and reliability in network design under uncertainty.
+\end{itemize}
+\textbf{Critique from Collaborator (Incorporated/Refined):} The min-max regret criterion can be overly conservative. Uncertainty modeling is limited to demand and return rates. The quality of the robust solution depends on the representativeness of the defined scenarios. Detailed modeling of specific recovery processes (remanufacturing, disassembly) is absent. The model is single-objective (profit-focused).

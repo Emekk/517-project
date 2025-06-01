@@ -1,0 +1,29 @@
+\section{{Reverse logistics network for municipal solid waste management: The inclusion of waste pickers as a Brazilian legal requirement, Ferri, G.L., Chaves, G.L.D., \& Ribeiro, G.M. (2015)}}
+
+\subsection*{Main Objective}
+To propose and validate a reverse logistics network model for Municipal Solid Waste (MSW) management in Brazil, maximizing profit while incorporating legal requirements for waste picker inclusion and strategic Material Recovery Facility (MRF) allocation.
+
+\subsection*{Methodology}
+A mixed-integer linear programming (MIP) model is developed. Validation is performed via scenario analysis using data from São Mateus, Brazil, solved with CPLEX.
+
+\subsection*{Key Aspects of the Network Design}
+\begin{itemize}
+    \item \textbf{Echelons:} MSW Generation locations; Material Recovery Facilities (MRFs for recyclable MSW$_{R}$ and general MSW$_{G}$ with varying capacities; waste picker associations considered as potential MRFs); Final Destinations (Sanitary Landfills, Recycling Companies, Recycle Dealers).
+    \item \textbf{Flows:} MSW$_{R}$ and MSW$_{G}$ from generation points to MRFs; sorted materials from MRFs to recyclers/dealers; refuse from MRFs to landfills.
+    \item \textbf{Decisions:} Number, location, and capacity of MRFs to open; quantities of MSW and sorted materials to flow between facilities.
+    \item \textbf{Objective:} Maximize total profit (revenue from recyclables sales minus transportation and MRF installation/operation costs).
+    \item \textbf{Constraints:} All generated waste processed, MRF capacity limits, flow conservation, facility opening logic.
+\end{itemize}
+
+\subsection*{Solution Approach}
+MIP model solved with CPLEX. Analysis based on different scenarios (selective collection rates, waste picker inclusion, number of MRFs, population growth).
+
+\subsection*{Key Findings}
+The model optimizes MRF configuration for maximum profit. Inclusion of MRFs (especially involving waste pickers) reduces transport costs and aids formalization. Higher selective collection rates improve system profitability.
+
+\subsection*{Contributions to Reverse Logistics Network Design}
+\begin{itemize}
+    \item Applies RL network design to MSW management, integrating legal, social, and economic criteria.
+    \item Offers a planning tool for MSW systems in developing countries with a significant informal sector.
+    \item Highlights MRFs as crucial reverse consolidation points for sorting, value recovery, and waste picker integration.
+\end{itemize}

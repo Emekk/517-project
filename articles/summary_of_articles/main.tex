@@ -1,0 +1,72 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage[autostyle]{csquotes}
+\usepackage{amsmath}
+\usepackage[T1]{fontenc}
+\usepackage{romannum}
+\usepackage{calligra} % handwritten font
+%\usepackage{newtxtext} % For text font
+\usepackage{newtxmath}
+\usepackage{float}
+%\usepackage{pdfpages}
+\usepackage{pifont}
+\usepackage{setspace}
+\usepackage{subcaption}
+\usepackage[export]{adjustbox}
+\usepackage{tcolorbox}
+\usepackage{multicol}
+%\usepackage{pgfplots}  % matplotlib plots
+%\usepackage{tikz}
+%\usetikzlibrary{shapes.geometric, shapes.multipart, arrows, positioning, arrows.meta}
+\usepackage[bottom]{footmisc}  % fix footnotes at the bottom of the page
+\usepackage{hyperref}
+\usepackage[a4paper, margin=1.4cm]{geometry}
+%\usepackage[toc, section=section]{glossaries}
+\usepackage[all]{hypcap}  % needed to help hyperlinks direct correctly
+
+% hyperlinks
+\hypersetup{
+    colorlinks=true, %set true if you want colored links
+    linktoc=all,     %set to all if you want both sections and subsections linked
+    linkcolor=black, %choose some color if you want links to stand out
+}
+
+% typewriter font
+\renewcommand{\ttdefault}{cmvtt}
+
+% table of contents
+\renewcommand\contentsname{TABLE OF CONTENTS}
+\setcounter{tocdepth}{3}
+
+% line spacing
+\setstretch{1.2}
+\renewcommand{\arraystretch}{1.5} % table row spacing
+
+% footnote
+\setlength{\skip\footins}{1.5cm}
+\setlength{\footnotesep}{0.6cm}
+\makeatletter
+\renewcommand\@makefntext[1]{\noindent\makebox[12pt][r]{\@thefnmark. }#1}
+
+
+\begin{document}
+
+\pagenumbering{gobble}
+\tableofcontents
+\clearpage
+\pagenumbering{arabic}
+
+\input{contents/1.tex}
+\input{contents/2.tex}
+\input{contents/3.tex}
+\input{contents/4.tex}
+\input{contents/5.tex}
+\input{contents/6.tex}
+\input{contents/7.tex}
+\input{contents/8.tex}
+\input{contents/9.tex}
+\input{contents/10.tex}
+
+\end{document}

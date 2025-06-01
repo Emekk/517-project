@@ -1,0 +1,58 @@
+
+\section{{Network design for reverse logistics, Srivastava, S. K. (2008)}}
+
+\subsection*{Main Objective}
+To develop an integrated, holistic conceptual framework and a corresponding mathematical model for designing a cost-effective and efficient multi-echelon, multi-period reverse logistics (RL) and value recovery network for product returns, specifically within the Indian context, considering Green Supply Chain Management (GrSCM) principles.
+
+\subsection*{Methodology}
+The study combines descriptive modeling (based on literature and informal interviews with 84 stakeholders) with optimization techniques. A bi-level (hierarchical) optimization approach is used. The first level optimizes collection center locations based on strategic and customer convenience constraints. The second, main optimization model then determines disposition decisions, rework facility locations, capacity additions, and flows to maximize profit. The model is formulated as a Mixed Integer Linear Program (MILP) and solved using GAMS with CPLEX.
+
+\subsection*{Key Aspects of the Network Design}
+\begin{itemize}
+    \item \textbf{Echelons:}
+        \begin{enumerate}
+            \item Consumers (origin of returns - 'bring scheme').
+            \item Collection Centers (CCs): Initial points for product returns, inspection, sorting, and first disposition (sell directly).
+            \item Rework Sites: Two distinct types:
+                \begin{itemize}
+                    \item Repair and Refurbishing Centers (lower capital, skill-based).
+                    \item Remanufacturing Centers (higher capital, technology-based).
+                \end{itemize}
+            \item Markets: Primary and secondary markets for reselling reworked goods and recovered modules.
+        \end{enumerate}
+    \item \textbf{Flows:} Multi-product (various categories like electronics, automobiles) returns, considering different grades. Products flow from customers to CCs, then either sold directly or sent to appropriate rework sites. Reworked products/modules are sold in markets.
+    \item \textbf{Decisions (Main Model - Post CC Location):}
+        \begin{itemize}
+            \item Disposition decisions at CCs (sell directly, send to repair/refurbish, send to remanufacture).
+            \item Location of rework sites (from candidate CC locations).
+            \item Capacity additions at rework sites over a multi-period horizon (10 years).
+            \item Flows of products/modules between CCs and rework sites, and from rework sites to markets.
+        \end{itemize}
+    \item \textbf{Objective (Main Model):} Maximize profit, defined as \{realization from reselling returned products (with/without rework) and recovered modules\} - \{RL costs (fixed/running facility costs, transportation, processing, inventory) + resolution price paid to customers\}.
+    \item \textbf{Constraints (Main Model):} Disposition decisions are mutually exclusive; capacity balance at rework sites; goods processed within capacity limits; inventory balance at rework sites.
+    \item \textbf{Contextual Factors:} Indian market; data from secondary sources and stakeholder interviews for costs, distances, processing times, recovery rates, etc.
+\end{itemize}
+
+\subsection*{Solution Approach}
+A hierarchical optimization:
+\begin{enumerate}
+    \item Simple optimization model (not detailed in objective/constraints here) to decide CC opening based on strategic and customer convenience (max distance) constraints. This determines product returns at these CCs.
+    \item Main MILP model then takes these CC locations and return volumes as inputs to optimize disposition, rework facility location/capacity, and flows for profit maximization. Solved with GAMS/CPLEX.
+\end{enumerate}
+
+\subsection*{Key Findings}
+\begin{itemize}
+    \item Remanufacturing is found to be generally not economically viable in the Indian context due to underdeveloped technologies and high capital investment, with refurbishing being the dominant disposition.
+    \item Product returns in most categories are below the 'critical mass' needed for large-scale remanufacturing.
+    \item Customer convenience (distance to CC) and per-unit transportation costs significantly impact network design.
+    \item The model provides insights into optimal facility numbers, locations, and capacities under various scenarios.
+\end{itemize}
+
+\subsection*{Contributions to Reverse Logistics Network Design}
+\begin{itemize}
+    \item Provides a conceptual framework and a hierarchical MILP model for RL network design tailored to product returns and value recovery in a developing country context (India).
+    \item Considers multiple product categories and distinguishes between repair/refurbishing and remanufacturing facilities.
+    \item Incorporates practical aspects like customer convenience constraints and multi-period capacity decisions for rework sites.
+    \item Highlights the economic challenges of remanufacturing in specific contexts.
+\end{itemize}
+\textbf{Critique from Collaborator (Incorporated/Refined):} The hierarchical approach might lead to sub-optimal solutions. Assumptions like unlimited demand for recovered goods and unconstrained storage are simplifications. While uncertainties are mentioned, the core model is deterministic. The operational details distinguishing repair from remanufacturing processes could be further elaborated.

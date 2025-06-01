@@ -1,0 +1,51 @@
+\section{{A Possibilistic Reliable and Responsive Closed Loop Supply Chain Network Design Model under Uncertainty, Hamidieh, A., \& Fazli-Khalaf, M. (2017)}}
+
+\subsection*{Main Objective}
+To design a bi-objective, reliable, and responsive multi-echelon closed-loop supply chain network (CLSCN) that minimizes total network costs and total earliness/tardiness of customer deliveries, while considering environmental issues and coping with uncertainties and facility disruptions.
+
+\subsection*{Methodology}
+A multi-objective linear programming model is proposed. Uncertainty in parameters (e.g., costs, demands) is handled using possibilistic programming (based on triangular fuzzy numbers derived from expert opinions) and converted to an equivalent crisp model. Facility disruptions (specifically at distribution centers) are addressed via a scenario-based approach with associated probabilities. The model is solved using an epsilon-constraint method for the bi-objective nature.
+
+\subsection*{Key Aspects of the Network Design}
+\begin{itemize}
+    \item \textbf{Echelons (Forward):} Suppliers (original and recycled raw materials), Plants (production), Distribution Centers, Customer Zones.
+    \item \textbf{Echelons (Reverse):} Customer Zones (return origin), Collection/Inspection Centers, Refurbishing Centers, Recycling Centers, Disposal Centers. Recovered products from refurbishing centers can re-enter the forward flow at distribution centers; recycled raw materials from recycling centers can re-enter at plants.
+    \item \textbf{Flows:} Single product flow through forward and reverse channels, including raw materials, finished products, and returned end-of-life products.
+    \item \textbf{Decisions:}
+        \begin{itemize}
+            \item Facility location and capacity level selection for plants ($XJ_{jz}$), distribution centers ($XL_{lt}$), and recycling centers ($XO_{oq}$).
+            \item Quantities of materials/products transferred between echelons in each scenario $s$ (e.g., $VIJ_{ijs}$ from supplier $i$ to plant $j$, $VJL_{jls}$ from plant $j$ to distribution center $l$).
+            \item Total earliness ($TEDT_{lks}$) and tardiness ($TTDT_{lks}$) of deliveries.
+        \end{itemize}
+    \item \textbf{Objectives:}
+        \begin{enumerate}
+            \item Minimize total network costs ($Z_1$): sum of fixed opening costs, variable purchasing, production, processing, holding, and transportation costs, weighted by scenario probabilities.
+            \item Minimize total weighted earliness/tardiness ($Z_2$) of product delivery to customer zones, weighted by scenario probabilities.
+        \end{enumerate}
+    \item \textbf{Uncertainty \& Reliability:}
+        \begin{itemize}
+            \item Possibilistic programming for uncertain costs and demands.
+            \item Scenario-based approach for partial/complete disruption of distribution center capacities.
+            \item Minimum acceptable quality level for raw materials.
+        \end{itemize}
+    \item \textbf{Constraints:} Demand satisfaction, flow balance across all echelons, facility capacity limits (considering disruptions for distribution centers), quality requirements, binary facility opening decisions, and non-negativity.
+\end{itemize}
+
+\subsection*{Solution Approach}
+The bi-objective possibilistic programming model is converted to a crisp equivalent. The epsilon-constraint method is used to find non-dominated solutions. CPLEX solver is used for implementation.
+
+\subsection*{Key Findings}
+\begin{itemize}
+    \item Increasing satisfaction levels (risk-aversion) for uncertain parameters leads to higher total costs.
+    \item The model demonstrates a trade-off between minimizing costs (leading to a more centralized network) and minimizing earliness/tardiness (leading to a more decentralized network with more open facilities).
+    \item Increasing customer demand leads to higher costs and earliness/tardiness, and potentially more open facilities.
+\end{itemize}
+
+\subsection*{Contributions to Reverse Logistics Network Design}
+\begin{itemize}
+    \item Develops a comprehensive bi-objective CLSCN model integrating forward and reverse flows with considerations for reliability (via disruption scenarios at distribution centers) and responsiveness (earliness/tardiness).
+    \item Employs possibilistic programming to handle parameter uncertainty based on expert opinion, offering an alternative to stochastic programming when historical data is scarce.
+    \item Addresses environmental concerns by explicitly modeling the recovery and recycling of end-of-life products.
+    \item Considers quality levels of raw materials.
+\end{itemize}
+\textbf{Critique from Collaborator (Incorporated/Refined):} The model's reliance on subjective expert-based possibility parameters can be a limitation. Its single-period structure doesn't capture dynamic aspects. The responsiveness metric is primarily time-based, and reliability is focused on distribution center disruptions. Variability in returned product quality impacting costs/yields is not deeply explored.

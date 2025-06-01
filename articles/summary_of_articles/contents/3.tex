@@ -1,0 +1,63 @@
+
+\section{{Reverse logistics network design with stochastic lead times, Lieckens, K., \& Vandaele, N. (2007)}}
+
+\subsection*{Main Objective}
+To design an efficient single-product, single-level reverse logistics network by extending traditional MILP models with queueing theory (G/G/1 model) to account for stochastic lead times, inventory positions, and the inherent uncertainty and variability in reverse logistics. The aim is to maximize overall expected yearly profit.
+
+\subsection*{Methodology}
+The paper starts with a traditional MILP formulation for facility location and allocation in reverse logistics. This is then extended by incorporating queueing relationships (specifically, approximations for G/G/1 queues to model waiting times and inventory) to capture dynamic aspects and variability. This extension transforms the problem into a Mixed Integer Nonlinear Program (MINLP). Due to the complexity, a Genetic Algorithm based on Differential Evolution (DE) is used as the solution method.
+
+\subsection*{Key Aspects of the Network Design}
+\begin{itemize}
+    \item \textbf{Echelons:} A single-level network is considered:
+        \begin{enumerate}
+            \item Customer Locations ($N$): Comprising Disposer Markets (sources of returns, $N^{Disp}$) and Reuse Markets (sinks for recovered products, $N^{Reuse}$).
+            \item Reprocessing/Recovery Facilities ($I$): Intermediate nodes where returned products are processed (e.g., disassembly, recycling, remanufacturing). These are candidate locations with predetermined capacity levels ($q$).
+        \end{enumerate}
+    \item \textbf{Flows:} Single product type.
+        \begin{itemize}
+            \item From Disposer Markets ($n \in N^{Disp}$) to Recovery Facilities ($i \in I$).
+            \item From Recovery Facilities ($i \in I$) to Reuse Markets ($n \in N^{Reuse}$).
+            \item A fraction of products at recovery facilities can be disposed of ($X_{i,disp}$).
+        \end{itemize}
+    \item \textbf{Decisions:}
+        \begin{itemize}
+            \item Which recovery facilities ($i$) to open and at which capacity level ($q$) ($Y_i(q)$).
+            \item Total product flow reprocessed at facility $i$ at capacity $q$ ($X_i(q)$).
+            \item Product flow from disposer market $n$ to facility $i$ ($X_{ni}$).
+            \item Product flow from facility $i$ to reuse market $n$ ($X_{in}$).
+            \item Fraction of demand not satisfied for reuse customer $n$ ($u_n$).
+            \item Fraction of returns not collected from disposer customer $n$ ($w_n$).
+        \end{itemize}
+    \item \textbf{Objective:} Maximize total expected yearly profit. This includes:
+        \begin{itemize}
+            \item Revenue from selling to reuse markets.
+            \item Minus: Fixed costs of opening facilities ($FIX_i(q)$), variable reprocessing costs ($c_i(q)$), transportation costs ($c_{ni}$), disposal costs ($c_{i,disp}$), penalty costs for unsatisfied demand ($c_n^u$) or uncollected returns ($c_n^w$), and inventory holding costs ($c_i(h)E(N_i)$).
+        \end{itemize}
+    \item \textbf{Stochasticity \& Queueing:}
+        \begin{itemize}
+            \item Variability in returns and reprocessing is modeled using Squared Coefficient of Variation (SCV) for arrivals ($c_a^2(n)$) and service times ($c_e^2(i)$).
+            \item Expected waiting time $E(W_{Qi})$ and expected number of products $E(N_i)$ at each facility $i$ are estimated using G/G/1 queue approximations (e.g., Kingman's or Whitt's formula), leading to nonlinear inventory cost terms.
+            \item Little's Law ($E(N_i) = \lambda_i E(W_i)$) is used to link cycle time to inventory.
+        \end{itemize}
+    \item \textbf{Constraints:} Flow balance at reprocessing facilities, demand satisfaction at reuse markets, capacity limits of facilities, logical constraints for facility opening, and non-negativity.
+\end{itemize}
+
+\subsection*{Solution Approach}
+A Genetic Algorithm based on Differential Evolution (DE) is employed to solve the MINLP. The DE uses continuous variables internally, with truncation for binary decisions during evaluation. Different DE schemes and parameter settings are tested.
+
+\subsection*{Key Findings}
+\begin{itemize}
+    \item Incorporating queueing relationships (and thus inventory costs related to lead times) leads to different network configurations and flow distributions compared to traditional MILP models that ignore these dynamic aspects.
+    \item The MINLP model is relevant when inventory, obsolescence, and lead time costs are significant.
+    \item The DE algorithm finds robust solutions close to the global optimum (when compared to enumeration for smaller cases) within acceptable time limits.
+\end{itemize}
+
+\subsection*{Contributions to Reverse Logistics Network Design}
+\begin{itemize}
+    \item Extends traditional facility location models for reverse logistics by integrating queueing theory (G/G/1) to explicitly model stochastic lead times and their impact on inventory costs.
+    \item Formulates the problem as an MINLP, capturing the nonlinear relationship between facility utilization, lead times, and inventory.
+    \item Applies a Differential Evolution based genetic algorithm to solve the complex MINLP.
+    \item Highlights the importance of considering operational variabilities and congestion effects in strategic network design for reverse logistics.
+\end{itemize}
+\textbf{Critique from Collaborator (Incorporated/Refined):} The model's applicability is limited by its single-product, single-echelon structure and single-period view. Representing facilities as single G/G/1 queues is a simplification. Metaheuristic solutions for MINLPs may not guarantee global optimality. Uncertainty modeling is focused on lead time variability, excluding other sources like return volumes or quality.

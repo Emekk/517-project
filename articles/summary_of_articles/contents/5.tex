@@ -1,0 +1,57 @@
+\section{{An optimization model for the design of a capacitated multi-product reverse logistics network with uncertainty, Salema, M. I. G., Barbosa-Povoa, A. P., \& Novais, A. Q. (2007)}}
+
+\subsection*{Main Objective}
+To develop a generalized mixed-integer linear programming (MILP) model for designing a capacitated, multi-product reverse logistics network that considers uncertainty in product demands and returns. The model aims to overcome limitations of case-based models by providing a more generic framework, extending the Recovery Network Model (RNM) by Fleischmann et al. (2001).
+
+\subsection*{Methodology}
+The paper proposes an MILP formulation. Uncertainty in customer demands and returns is handled using a scenario-based approach, where the objective function minimizes the expected total cost over a finite set of discrete scenarios, each with an associated probability. The model is solved using standard Branch \& Bound (B\&B) techniques (GAMS/CPLEX).
+
+\subsection*{Key Aspects of the Network Design}
+\begin{itemize}
+    \item \textbf{Echelons (Integrated Forward and Reverse):}
+        \begin{enumerate}
+            \item Factories ($I$): Potential locations for production and receiving returns from disassembly centers. An additional disposal option ($I_0$) is included.
+            \item Warehouses ($J$): Potential intermediate storage/distribution points in the forward chain.
+            \item Customers ($K$): Sources of demand for new products and origin of used product returns.
+            \item Disassembly Centers ($L$): Potential locations for collecting and disassembling returned products.
+        \end{enumerate}
+    \item \textbf{Flows:} Multi-product ($m \in M$) flows.
+        \begin{itemize}
+            \item Forward: Factory $\rightarrow$ Warehouse $\rightarrow$ Customer ($X^f_{mijks}$).
+            \item Reverse: Customer $\rightarrow$ Disassembly Center $\rightarrow$ Factory (for recovery) or Disposal ($X^r_{mklis}$, $X^r_{mkl0s}$).
+        \end{itemize}
+    \item \textbf{Decisions:}
+        \begin{itemize}
+            \item Facility location: Which factories ($Y^p_i$), warehouses ($Y^w_j$), and disassembly centers ($Y^r_l$) to open (binary variables, not scenario-dependent).
+            \item Flow allocation: Fraction of demand/return for each product $m$ and customer $k$ to be routed through the network under each scenario $s$ (e.g., $X^f_{mijks}$, $X^r_{mklis}$).
+            \item Non-satisfied demand ($U_{mks}$) and non-satisfied return ($W_{mks}$) fractions under each scenario $s$.
+        \end{itemize}
+    \item \textbf{Objective:} Minimize total expected costs across all scenarios. Costs include:
+        \begin{itemize}
+            \item Fixed costs for opening factories, warehouses, and disassembly centers.
+            \item Variable costs for serving demand (transportation, production).
+            \item Variable costs for handling returns (transportation, reprocessing).
+            \item Penalty costs for non-satisfied demand and non-satisfied returns.
+        \end{itemize}
+    \item \textbf{Uncertainty:} Customer demand ($d_{mks}$) and return volumes ($r_{mks}$) are scenario-dependent.
+    \item \textbf{Constraints:} Demand satisfaction (or penalty for non-satisfaction), return handling (or penalty for non-collection), balance constraint at factories (return volume $\le$ demand volume), minimum disposal fraction, capacity limits (min and max) for factories, warehouses, and disassembly centers (for total throughput of all products).
+\end{itemize}
+
+\subsection*{Solution Approach}
+The MILP model, incorporating multiple scenarios for demand and return, is solved using GAMS/CPLEX.
+
+\subsection*{Key Findings}
+\begin{itemize}
+    \item The model successfully determines the optimal network configuration (opened facilities and flows) under uncertainty.
+    \item Capacity constraints significantly impact the network structure (e.g., requiring more warehouses compared to an uncapacitated model).
+    \item The multi-product formulation leads to more intricate network structures compared to single-product models, as distribution is managed simultaneously for all products.
+    \item The scenario-based approach allows for evaluating network performance under different future conditions (e.g., pessimistic, optimistic demand/return).
+\end{itemize}
+
+\subsection*{Contributions to Reverse Logistics Network Design}
+\begin{itemize}
+    \item Extends the generic RNM by incorporating facility capacity limits, multi-product flows, and demand/return uncertainty via a scenario-based stochastic programming approach.
+    \item Provides a more generalized model applicable to a variety of reverse logistics situations beyond specific case studies.
+    \item Demonstrates how to integrate forward and reverse flows in a capacitated, multi-product network under uncertainty.
+\end{itemize}
+\textbf{Critique from Collaborator (Incorporated/Refined):} The expected value objective is risk-neutral. The reverse network is simplified (disassembly centers and original factories only). Processing costs, yield uncertainties, and lead times are not explicitly modeled. Defining scenario probabilities is challenging. The model is cost-focused, excluding other performance metrics.

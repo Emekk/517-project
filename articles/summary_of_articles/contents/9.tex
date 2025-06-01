@@ -1,0 +1,30 @@
+\section{{An optimization model for reverse logistics network under stochastic environment by using genetic algorithm, Roghanian, E., \& Pazhoheshfar, P. (2014)}}
+
+\subsection*{Main Objective}
+To propose a probabilistic mixed-integer linear programming (MILP) model for designing a multi-product, multi-stage reverse logistics network for returned products under uncertainty, aiming to minimize total costs (fixed opening and shipping).
+
+\subsection*{Methodology}
+A probabilistic MILP model is formulated, where demands at manufacturing and recycling centers are random variables. This model is converted into an equivalent deterministic model using stochastic programming principles (specifically, chance constraints for demand satisfaction). A priority-based Genetic Algorithm (GA) is then proposed to solve the problem.
+
+\subsection*{Key Aspects of the Network Design}
+\begin{itemize}
+    \item \textbf{Echelons:} Returning centers (origin of returned products), Disassembly centers (fixed opening cost $CO_{jm}^{C}$), Processing centers (fixed opening cost $CO_{km}^{C}$), Manufacturing centers (destination for reusable parts), and Recycling centers (destination for recyclable parts/products).
+    \item \textbf{Flows:} Multi-product (p) and multi-part (m) flows. Products from returning centers to disassembly centers ($X_{ijp}$) or directly to processing centers ($X_{ikp}$). Parts from disassembly centers to processing centers ($X_{jkm}$) or directly to recycling centers ($X_{jrm}$). Processed parts from processing centers to manufacturing centers ($X_{kfm}$) or recycling centers ($X_{krm}$).
+    \item \textbf{Decisions:} Which disassembly centers to open ($Y_{jm}$), which processing centers to open ($Q_{km}$), and the transportation strategy (quantities shipped between echelons).
+    \item \textbf{Objective:} Minimize the sum of total shipping costs and fixed opening costs for disassembly and processing centers.
+    \item \textbf{Stochasticity:} Demands for parts at manufacturing centers ($d_{fm}$) and demands for products/parts at recycling centers ($d_{rp}$, $d_{rm}$) are stochastic (assumed normally distributed). These are handled via chance constraints, converted to deterministic equivalents using a confidence level (1-$\alpha$).
+    \item \textbf{Constraints:} Capacity of returning centers, disassembly centers, and processing centers; flow balance; demand satisfaction (probabilistic); limits on the number of open disassembly and processing centers.
+\end{itemize}
+
+\subsection*{Solution Approach}
+A priority-based Genetic Algorithm (GA) is developed. The chromosome consists of six segments representing priorities for flows between different echelons (e.g., returning to disassembly, disassembly to processing). Decoding is done backward, using Algorithm 1 (priority-based decoding for transportation subproblems) for each segment. WMX (Weight Mapping Crossover) and insert mutation are used.
+
+\subsection*{Key Findings}
+The proposed model and priority-based GA can find feasible solutions for the reverse logistics network design problem under stochastic demand. The numerical example demonstrates the transportation strategy derived by the GA.
+
+\subsection*{Contributions to Reverse Logistics Network Design}
+\begin{itemize}
+    \item Develops a multi-product, multi-stage reverse logistics network model explicitly incorporating stochastic demands at manufacturing and recycling centers.
+    \item Converts the probabilistic model into a deterministic equivalent for solution.
+    \item Applies a priority-based Genetic Algorithm, which is noted for avoiding complex repair mechanisms, to solve this NP-hard stochastic network design problem.
+\end{itemize}

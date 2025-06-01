@@ -1,0 +1,41 @@
+\section{{A genetic algorithm approach to developing the multi-echelon reverse logistics network for product returns, Min, H., Ko, H. J., \& Ko, C. S. (2006)}}
+
+\subsection*{Main Objective}
+To develop a nonlinear mixed-integer programming (NLMIP) model and a Genetic Algorithm (GA) to design a cost-minimizing multi-echelon reverse logistics network for product returns, focusing on the number and location of initial collection points and centralized return centers (CRCs).
+
+\subsection*{Methodology}
+An NLMIP model is formulated to capture costs associated with product returns. A Genetic Algorithm (GA) is developed as the solution methodology due to the problem's complexity.
+
+\subsection*{Key Aspects of the Network Design}
+\begin{itemize}
+    \item \textbf{Echelons:} Customers (return origin); Initial Collection Points (ICPs, e.g., retail stores, rented space); Centralized Return Centers (CRCs, for inspection, sorting, consolidation); (Implicitly) Manufacturers/Repair facilities (final destination from CRCs).
+    \item \textbf{Flows:} Products from customers to ICPs; from ICPs to CRCs.
+    \item \textbf{Decisions:}
+        \begin{itemize}
+            \item Which ICPs to select/open ($Z_j$).
+            \item Which CRCs to establish ($G_k$).
+            \item Assignment of customers to ICPs ($Y_{ij}$).
+            \item Quantity of products flowing from ICPs to CRCs ($X_{jk}$).
+            \item Length of collection/consolidation period at ICPs ($T_j$).
+        \end{itemize}
+    \item \textbf{Objective:} Minimize total reverse logistics costs, including: renting costs for ICPs, inventory carrying costs at ICPs, establishment costs for CRCs, and shipping costs from ICPs to CRCs (which is a nonlinear function of volume, distance, and collection period $T_j$).
+    \item \textbf{Constraints:} Customer assignment, flow through open facilities, flow balance at ICPs, CRC capacity, maximum customer-to-ICP distance, minimum number of open ICPs and CRCs.
+\end{itemize}
+
+\subsection*{Solution Approach}
+A Genetic Algorithm (GA) with specific encoding for facility opening and collection periods, along with cloning, parent selection, crossover, and mutation operators. A fitness function incorporates the objective function and penalties for infeasibility.
+
+\subsection*{Key Findings}
+The GA effectively solves the NLMIP. Sensitivity analyses indicated that:
+\begin{itemize}
+    \item Longer consolidation periods at ICPs reduce total costs due to better freight rates, with stable facility numbers.
+    \item Increased allowable customer-to-ICP distance reduces costs and the number of ICPs.
+    \item Total costs are highly sensitive to unit inventory carrying costs.
+\end{itemize}
+
+\subsection*{Contributions to Reverse Logistics Network Design}
+\begin{itemize}
+    \item Presents an NLMIP model for product return networks, explicitly considering the trade-off between inventory holding costs (related to consolidation time $T_j$) and transportation costs.
+    \item Develops a GA tailored for this specific reverse logistics network design problem.
+    \item Provides insights into how operational parameters (consolidation period, service distance) affect network structure and costs.
+\end{itemize}

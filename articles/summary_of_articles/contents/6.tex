@@ -1,0 +1,29 @@
+\section{{The design of reverse distribution networks: Models and solution procedures, Jayaraman, V., Patterson, R. A., \& Rolland, E. (2003)}}
+
+\subsection*{Main Objective}
+To develop models and efficient solution procedures for designing cost-minimizing reverse distribution networks for product returns.
+
+\subsection*{Methodology}
+A mixed-integer linear programming (MILP) model (``Model Refurb'') is proposed. Due to NP-hard nature, a heuristic solution methodology combining heuristic concentration and heuristic expansion (HE) is also developed.
+
+\subsection*{Key Aspects of the Network Design}
+\begin{itemize}
+    \item \textbf{Echelons:} Origination sites (product returns), optional Collection sites (consolidation, fixed cost), and Refurbishing sites (processing, fixed cost).
+    \item \textbf{Flows:} Products from origination sites, potentially via collection sites, to refurbishing sites. Direct shipment from origination to refurbishing is allowed.
+    \item \textbf{Decisions:} Which collection and refurbishing sites to open; allocation of product flows through the network.
+    \item \textbf{Objective:} Minimize total costs (variable transportation/processing + fixed facility opening costs).
+    \item \textbf{Constraints:} Include demand satisfaction, facility capacities, site opening logic, and limits on the number of open facilities.
+\end{itemize}
+
+\subsection*{Solution Approach}
+Heuristic procedure involving: 1) Random selection of site subsets, 2) Heuristic concentration to identify promising sites, 3) Heuristic Expansion (HE) for greedy improvement. An alternative deterministic heuristic (Procedure CC) is also presented. Subproblems solved using AMPL/CPLEX.
+
+\subsection*{Key Findings}
+Heuristic procedures, especially with HE, yield high-quality (often near-optimal) solutions much faster than exact methods for large problems. HE significantly improves initial heuristic solutions.
+
+\subsection*{Contributions to Reverse Logistics Network Design}
+\begin{itemize}
+    \item Provides a comprehensive MILP for multi-echelon reverse network design.
+    \item Develops and validates an effective heuristic (heuristic concentration + HE) for this complex problem.
+    \item Demonstrates practical utility for large-scale reverse logistics network design.
+\end{itemize}

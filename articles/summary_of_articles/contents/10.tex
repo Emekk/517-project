@@ -1,0 +1,46 @@
+\section{{Reverse logistics network design model based on e-commerce, Qian, X.Y., Han, Y., Da, Q., \& Stokes, P. (2012)}}
+
+\subsection*{Main Objective}
+To study and propose a reverse logistics network design model specifically for e-commerce, aiming to minimize overall logistic costs by determining optimal locations for factories, online retailers, and third-party logistics providers (3PLs). The paper also discusses determining market demands and returns under uncertainty.
+
+\subsection*{Methodology}
+A 0-1 mixed-integer linear programming (0-1MILP) model is proposed for the e-commerce reverse logistics network. A separate mathematical model is discussed for predicting market demands and returns based on product price and return price, assuming these can be determined when a return policy is set. A case study illustrates the model.
+
+\subsection*{Key Aspects of the Network Design}
+\begin{itemize}
+    \item \textbf{Echelons:}
+        \begin{enumerate}
+            \item Factories ($I$): Potential locations for processing returned products.
+            \item Online Retailers ($J$): Potential locations for handling returns or reselling.
+            \item Third-Party Logistics Providers (3PLs) ($K$): Potential locations for collecting, centralizing, and routing returned products.
+            \item Consuming Markets ($L$): Fixed locations where demand and returns originate.
+        \end{enumerate}
+    \item \textbf{Flows:}
+        \begin{itemize}
+            \item Forward: Products from factories/3PLs via online retailers to markets.
+            \item Reverse: Returns from markets collected by 3PLs, then delivered to factories or online retailers.
+        \end{itemize}
+    \item \textbf{Decisions:}
+        \begin{itemize}
+            \item Which factories ($Y_i$), online retailers ($Y_j$), and 3PLs ($Y_k$) to open/use.
+            \item Fraction of market ($l$) demand served from factory $i$ and online retailer $j$ ($X_{ijl}$).
+            \item Fraction of market ($l$) demand served from 3PL $k$ and online retailer $j$ ($X_{kjl}$).
+            \item Fraction of returns from market $l$ collected by 3PL $k$ and delivered to factory $i$ ($X_{lki}$).
+            \item Fraction of returns from market $l$ collected by 3PL $k$ and delivered to online retailer $j$ ($X_{lkj}$).
+        \end{itemize}
+    \item \textbf{Objective:} Minimize total logistical costs, including fixed opening costs for factories, online retailers, and 3PLs, plus transportation costs for both forward and reverse flows.
+    \item \textbf{Constraints:} Ensure returned products to online retailers meet market demand, balance flows at online retailers, ensure all returns are delivered to factories or online retailers, ensure products from factories/3PLs meet market demand, balance flows at factories, facility opening logic ($Y_i, Y_j, Y_k$), capacity limits ($M_i, N_j, Q_k$), and a minimum portion ($\eta$) of returns delivered to factories.
+\end{itemize}
+
+\subsection*{Solution Approach}
+The 0-1MILP model is formulated. The paper mentions using Lingo9.0 for solving the numerical example. The demand and return quantities ($d_l, r_l$) are determined by a separate optimal return policy model.
+
+\subsection*{Key Findings}
+The model identifies optimal locations and flows for the e-commerce reverse logistics network. The case study demonstrates that returned products are centralized at the 3PL, which then routes them to online retailers (for resale) or back to factories (for processing), based on cost and policy (e.g., minimum return to factory).
+
+\subsection*{Contributions to Reverse Logistics Network Design}
+\begin{itemize}
+    \item Proposes a specific 0-1MILP model for designing a three-echelon (factories, online retailers, 3PLs) reverse logistics network tailored to the e-commerce context, where 3PLs play a central role in collecting returns.
+    \item Integrates the concept of an optimal return policy (determining demand and return quantities) as an input to the network design model.
+    \item Highlights the role of 3PLs in managing e-commerce returns and the trade-offs in routing these returns to either online retailers or factories.
+\end{itemize}
