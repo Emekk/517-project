@@ -34,25 +34,18 @@
 \paragraph{} Similar to Jayaraman et al., this paper considers a deterministic, cost-minimization problem for general returns. However, it introduces nonlinearity in the objective function to capture the relationship between inventory holding costs and order volume (enabling economies of scale).
 
 \subsubsection{Srivastava (2008): Network design for reverse logistics}
-\paragraph{Main Objective} To develop an integrated, holistic conceptual framework and a corresponding mathematical model for designing a cost-effective and efficient multi-echelon, multi-period reverse logistics (RL) and value recovery network for product returns, specifically within the Indian context, emphasizing Green Supply Chain Management (GrSCM) principles.
-\paragraph{Methodology} The study combines descriptive modeling (based on literature and informal interviews with 84 stakeholders) with optimization techniques. A bi-level (hierarchical) optimization approach is used. The first level optimizes collection center locations. The second, main optimization model then determines disposition decisions, rework facility locations, capacities, and product routing. The model is formulated as a Mixed Integer Linear Program (MILP) and solved using GAMS with CPLEX.
-\paragraph{Key Aspects of the Network Design}
-\begin{itemize}
-    \item \textbf{Echelons:} Consumers (origin); Collection Centers (CCs); Rework Sites (Repair/Refurbishing Centers and Remanufacturing Centers); Markets (primary/secondary).
-    \item \textbf{Flows:} Multi-product returns (various grades). From customers to CCs, then to rework sites or sold directly. Reworked products/modules to markets.
-    \item \textbf{Decisions (Main Model):} Disposition at CCs; Location of rework sites; Capacity additions at rework sites (multi-period); Flows between echelons.
-    \item \textbf{Objective (Main Model):} Maximize profit (reselling revenue minus RL costs and resolution price).
-    \item \textbf{Constraints (Main Model):} Disposition logic, capacity balance, processing within limits, inventory balance.
-\end{itemize}
-\paragraph{Solution Approach} Hierarchical: 1) Simple optimization for CC location. 2) Main MILP (GAMS/CPLEX) for disposition, rework facility configuration, and flows.
-\paragraph{Key Findings} Remanufacturing often not economically viable in the Indian context; refurbishing dominates. Customer convenience and transport costs significantly impact network.
-\paragraph{Contributions to Reverse Logistics Network Design}
-\begin{itemize}
-    \item Provides a conceptual framework and hierarchical MILP for RL network design in a developing country context.
-    \item Distinguishes between repair/refurbishing and remanufacturing.
-    \item Incorporates multi-period capacity decisions for rework sites.
-\end{itemize}
-\paragraph{Discussion within Cluster:} This paper stands out in the deterministic cluster due to its hierarchical approach and broad contextual application in a developing economy. While the core optimization models (for collection center location and then rework facility configuration) are deterministic MILPs, the overall framework is more conceptual and considers a wider range of product types. The separation of decisions into levels is a pragmatic way to handle complexity but may lead to sub-optimal overall solutions compared to a monolithic model.
+
+\paragraph{} Main objective is to develop a mathematical model for designing a cost-effective and efficient multi-echelon, multi-period reverse logistics and value recovery network for product returns, specifically within the Indian context, emphasizing Green Supply Chain Management (GrSCM) principles.
+
+\paragraph{} The study combines descriptive modeling with optimization techniques. A hierarchical optimization approach is used. The first level optimizes collection center locations, and the second one, main one, then determines disposition decisions, rework facility locations, capacities, and product routing. The model is formulated as an MILP.
+
+\paragraph{} The network design includes echelons such as customers, collection centers, re/manufacturing, and markets (primary/secondary). Flows involve multi-product returns of various grades, moving from customers to collection centers, then to re/manufacturing sites or sold directly, with reworked products/modules sent to markets. Decisions include disposition at collection centers, location of re/manufacturing sites, capacity additions at re/manufacturing sites, and flows between echelons. The objective is to maximize profit (reselling revenue minus RL costs and resolution price). Constraints include disposition logic, capacity balance, processing within limits, and inventory balance.
+
+\paragraph{} Hierarchical: Simple optimization for collection center location. Main MILP for disposition, re/manufacturing facility configuration, and flows.
+
+\paragraph{} Remanufacturing often not economically viable in the Indian context; refurbishing dominates. Customer convenience and transport costs significantly impact network.
+
+\paragraph{} This makes a hierarchical approach and a broad application in a developing economy. While the core optimization models are deterministic MILPs, the overall framework considers a wider range of product types. The separation of decisions into levels is different from the other papers in this cluster.
 
 \subsubsection{Qian, Han, Da, \& Stokes (2012): Reverse logistics network design model based on e-commerce}
 \paragraph{Main Objective} To study and propose a reverse logistics network design model specifically for e-commerce, aiming to minimize overall logistic costs by determining optimal locations for factories, online retailers, and third-party logistics providers (3PLs).
