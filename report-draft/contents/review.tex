@@ -98,31 +98,19 @@ The deterministic models reviewed provide essential building blocks for RL netwo
 
 \subsubsection{Lieckens \& Vandaele (2007): Reverse logistics network design with stochastic lead times}
 
-\paragraph{Main Objective} To design an efficient single-product, single-level RL network by extending MILP models with queueing theory (G/G/1) to account for stochastic lead times, inventory, and uncertainty, maximizing yearly profit.
+\paragraph{} Main objective is to design an efficient single-product, single-level reverse logistic network by extending MILP models with queueing theory (G/G/1) to account for stochastic lead times, inventory, and uncertainty, maximizing yearly profit.
 
-\paragraph{Methodology} Extends MILP with G/G/1 queueing approximations for waiting times/inventory, resulting in an MINLP. Solved with a Genetic Algorithm based on Differential Evolution (DE).
+\paragraph{} Extends MILP with (G/G/1) queueing approximations for waiting times/inventory, resulting in an MINLP. Solved with a Genetic Algorithm based on Differential Evolution.
 
-\paragraph{Key Aspects of the Network Design}
-\begin{itemize}
-    \item \textbf{Echelons (Single-level):} Customer Locations (Disposer Markets - sources; Reuse Markets - sinks); Reprocessing/Recovery Facilities (intermediate).
-    \item \textbf{Flows:} Single product. Disposer Markets $\rightarrow$ Recovery Facilities $\rightarrow$ Reuse Markets. Disposal option at facilities.
-    \item \textbf{Decisions:} Which recovery facilities to open and at what capacity level; Flow allocations; Fractions of unsatisfied demand/uncollected returns.
-    \item \textbf{Objective:} Maximize total expected yearly profit (Revenue - fixed costs, reprocessing costs, transport, disposal, penalties, inventory holding costs).
-    \item \textbf{Stochasticity \& Queueing:} Variability in returns/reprocessing via SCV. G/G/1 queue approximations for $E(W_{Qi})$ and $E(N_i)$, leading to nonlinear inventory costs. Little's Law links cycle time to inventory.
-    \item \textbf{Constraints:} Flow balance, demand satisfaction, facility capacities, logical opening constraints.
-\end{itemize}
-\paragraph{Solution Approach} MINLP solved with DE-based GA.
-\paragraph{Key Findings} Incorporating queueing (inventory costs from lead times) yields different network configurations than traditional MILPs. Model relevant when inventory/lead time costs are significant. DE finds robust, near-optimal solutions.
-\paragraph{Contributions to Reverse Logistics Network Design}
-\begin{itemize}
-    \item Integrates queueing theory (G/G/1) into RL facility location to model stochastic lead times and their impact on inventory.
-    \item Formulates the problem as an MINLP capturing nonlinear utilization-lead time-inventory relationships.
-    \item Applies DE-based GA to solve the complex MINLP.
-\end{itemize}
-\paragraph{Discussion within Cluster:} This paper introduces a different type of stochasticity – operational variability (lead times, processing times) – rather than just quantity uncertainty. By using G/G/1 queue approximations, it captures the nonlinear impact of congestion and variability on inventory holding costs, a crucial aspect often overlooked. The objective is profit maximization, and a Differential Evolution based GA is used to solve the resulting MINLP. This highlights the need for specialized models when operational dynamics are critical.
+\paragraph{} For the network design, echelons include disposer markets (sources), reuse markets (sinks), and re/manufacturing facilities. Flows are single product, moving from disposer markets to recovery facilities and then to reuse markets. Decisions include which recovery facilities to open, their capacity levels, flow allocations, and fractions of unsatisfied demand/uncollected returns. The objective is to maximize total expected yearly profit, accounting for revenue, fixed costs, reprocessing costs, transport costs, disposal penalties, and inventory holding costs. Stochasticity arises from variability in returns and reprocessing times, modeled via the squared coefficient of variation. Queueing approximations (G/G/1) are used to estimate expected waiting times and inventory levels, leading to nonlinear inventory costs. Little's Law links cycle time to inventory. Constraints include flow balance, demand satisfaction, facility capacities, and logical opening constraints.
 
-\paragraph{Synthesis of Stochastic Models:}
-The stochastic models in this cluster represent a significant advancement by explicitly incorporating uncertainty, primarily in demand/return quantities (Salema et al., Roghanian \& Pazhoheshfar) or operational times (Lieckens \& Vandaele). They typically optimize an expected value (e.g., expected cost) or ensure probabilistic constraint satisfaction. These models often result in more complex formulations (e.g., MINLPs when queueing is involved) and require sophisticated solution techniques like metaheuristics or specialized algorithms for scenario-based problems. They provide more realistic and potentially more robust network designs compared to deterministic counterparts.
+\paragraph{} Incorporating queueing (inventory costs from lead times) yields different network configurations than traditional MILPs. Model relevant when inventory/lead time costs are significant. Differential Evolution finds robust, near-optimal solutions.
+
+\paragraph{} This paper introduces a different type of stochasticity and operational variability (lead times, processing times) rather than just quantity uncertainty. The objective is profit maximization, and a Differential Evolution based GA is used to solve the resulting MINLP. This highlights the need for specialized models when operational dynamics are critical.
+
+\textcolor{blue}
+{\paragraph{TODO: Synthesis of Stochastic Models:}
+The stochastic models in this cluster represent a significant advancement by explicitly incorporating uncertainty, primarily in demand/return quantities (Salema et al., Roghanian \& Pazhoheshfar) or operational times (Lieckens \& Vandaele). They typically optimize an expected value (e.g., expected cost) or ensure probabilistic constraint satisfaction. These models often result in more complex formulations (e.g., MINLPs when queueing is involved) and require sophisticated solution techniques like metaheuristics or specialized algorithms for scenario-based problems. They provide more realistic and potentially more robust network designs compared to deterministic counterparts.}
 
 \subsection{Cluster 3: Robust and Possibilistic Network Design Models}
 When precise probability distributions for uncertain parameters are difficult to obtain, robust optimization and possibilistic programming offer alternative paradigms. Robust optimization seeks solutions that are immune to uncertainty or perform well under worst-case conditions, often without requiring probability data. Possibilistic programming uses fuzzy set theory to model imprecise parameters based on expert judgments.
