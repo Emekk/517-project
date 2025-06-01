@@ -3,4 +3,5 @@ A) Deterministic Network Design Models
 	2. Min, Ko, & Ko (2006): A genetic algorithm approach to developing the multi-echelon reverse logistics network for product returns
 	3. Srivastava (2008): Network design for reverse logistics
 	4. Qian, Han, Da, & Stokes (2012): Reverse logistics network design model based on e-commerce
-	5. 
+	5. Ferri, Chaves, & Ribeiro (2015): Reverse logistics network for municipal solid waste management: The inclusion of waste pickers as a Brazilian legal requirement
+	6.

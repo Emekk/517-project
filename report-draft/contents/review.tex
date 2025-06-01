@@ -60,28 +60,18 @@
 \paragraph{} Qian et al. (2012) bring a specific application context (e-commerce) to the deterministic modeling cluster. A distinctive feature is the explicit inclusion of 3PLs as central collectors, reflecting a common strategy in e-commerce RL. While demand and return determination is discussed as a separate, potentially uncertainty-laden step, the network design model itself uses these as deterministic inputs.
 
 \subsubsection{Ferri, Chaves, \& Ribeiro (2015): Reverse logistics network for municipal solid waste management: The inclusion of waste pickers as a Brazilian legal requirement}
-\paragraph{Main Objective} To propose and validate a reverse logistics network model for Municipal Solid Waste (MSW) management in Brazil, maximizing profit while incorporating legal requirements for waste picker inclusion and strategic Material Recovery Facility (MRF) allocation.
-\paragraph{Methodology} An MILP model is developed, validated via scenario analysis (São Mateus, Brazil), solved with CPLEX.
-\paragraph{Key Aspects of the Network Design}
-\begin{itemize}
-    \item \textbf{Echelons:} MSW Generation locations; Material Recovery Facilities (MRFs for MSW$_{R}$/MSW$_{G}$; waste picker associations as potential MRFs); Final Destinations (Landfills, Recycling Companies, Recycle Dealers).
-    \item \textbf{Flows:} MSW$_{R}$ (recyclable) and MSW$_{G}$ (general) to MRFs; sorted materials from MRFs to recyclers/dealers; refuse to landfills.
-    \item \textbf{Decisions:} Number, location, capacity of MRFs; MSW/sorted material flows.
-    \item \textbf{Objective:} Maximize total profit (recyclables sales revenue - transport and MRF installation/operation costs).
-    \item \textbf{Constraints:} All waste processed, MRF capacity limits, flow conservation, facility opening logic.
-\end{itemize}
-\paragraph{Solution Approach} MILP solved with CPLEX; scenario analysis for validation.
-\paragraph{Key Findings} Model optimizes MRF configuration. MRF inclusion (especially with waste pickers) reduces transport costs and aids formalization. Higher selective collection improves profitability.
-\paragraph{Contributions to Reverse Logistics Network Design}
-\begin{itemize}
-    \item Applies RL network design to MSW, integrating legal, social, and economic criteria.
-    \item Offers a planning tool for MSW systems in developing countries with a significant informal sector.
-    \item Highlights MRFs as crucial reverse consolidation points.
-\end{itemize}
-\paragraph{Discussion within Cluster:} This paper is notable for integrating social and legal constraints into a deterministic MILP framework for MSW. While the core optimization for a given operational scenario (e.g., a specific selective collection rate) is deterministic, the use of scenario analysis for validation allows for exploring the impact of different (but fixed within each scenario) parameters. The objective is profit maximization, considering revenues from recyclables and various costs. This work highlights how deterministic models can be adapted to specific socio-legal contexts.
 
-\paragraph{Synthesis of Deterministic Models:}
-The deterministic models reviewed provide essential building blocks for RL network design. They typically employ MILP or NLMIP formulations to optimize economic objectives like cost minimization (Jayaraman et al., Min et al., Qian et al.) or profit maximization (Ferri et al., Srivastava). Key decisions revolve around facility location (collection centers, rework/processing facilities) and flow allocation. Due to the combinatorial complexity, especially with many potential locations, heuristic and metaheuristic solution approaches (Jayaraman et al., Min et al.) are common. While these models offer clarity and tractability for certain problem scopes, their primary limitation is the assumption of certainty, which may not hold in volatile RL environments. Contexts range from general product returns to specific applications like e-commerce and MSW management.
+\paragraph{} Main objective is to propose and validate a reverse logistics network model for Municipal Solid Waste (MSW) management in Brazil, maximizing profit while incorporating legal requirements for waste picker inclusion and strategic Material Recovery Facility (MRF) allocation. An MILP model is developed, validated via scenario analysis (São Mateus, Brazil).
+
+\paragraph{} For the network design, echelons include MSW generation location MRFs, waste picker associations, and final destinations. Flows involve recyclable (MSW$_{R}$) and general (MSW$_{G}$) waste to MRFs, sorted materials to recyclers/dealers, and refuse to landfills. Decisions include the number, location, and capacity of MRFs, as well as flow allocations. The objective is to maximize total profit. Constraints ensure all waste is processed, respect MRF capacities, maintain flow conservation, and adhere to facility opening logic.
+
+\paragraph{} Model optimizes MRF configuration. MRF inclusion (especially with waste pickers) reduces transport costs and helps formalization. Higher selective collection improves profitability.
+
+\paragraph{} This paper is notable for integrating social and legal constraints into a deterministic MILP framework for MSW. This work highlights how deterministic models can be adapted to specific socio-legal contexts.
+
+\textcolor{blue}
+{\paragraph{TODO: REMOVE Synthesis of Deterministic Models:}
+The deterministic models reviewed provide essential building blocks for RL network design. They typically employ MILP or NLMIP formulations to optimize economic objectives like cost minimization (Jayaraman et al., Min et al., Qian et al.) or profit maximization (Ferri et al., Srivastava). Key decisions revolve around facility location (collection centers, rework/processing facilities) and flow allocation. Due to the combinatorial complexity, especially with many potential locations, heuristic and metaheuristic solution approaches (Jayaraman et al., Min et al.) are common. While these models offer clarity and tractability for certain problem scopes, their primary limitation is the assumption of certainty, which may not hold in volatile RL environments. Contexts range from general product returns to specific applications like e-commerce and MSW management.}
 
 \subsection{Cluster 2: Stochastic Network Design Models}
 Stochastic models explicitly address uncertainty by incorporating probabilistic information about parameters like demand, return rates, or lead times. These models often aim to optimize the expected performance of the network or to satisfy service levels with a certain probability, providing more robust insights than purely deterministic approaches.
