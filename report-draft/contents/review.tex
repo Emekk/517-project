@@ -73,55 +73,35 @@
 {\paragraph{TODO: REMOVE Synthesis of Deterministic Models:}
 The deterministic models reviewed provide essential building blocks for RL network design. They typically employ MILP or NLMIP formulations to optimize economic objectives like cost minimization (Jayaraman et al., Min et al., Qian et al.) or profit maximization (Ferri et al., Srivastava). Key decisions revolve around facility location (collection centers, rework/processing facilities) and flow allocation. Due to the combinatorial complexity, especially with many potential locations, heuristic and metaheuristic solution approaches (Jayaraman et al., Min et al.) are common. While these models offer clarity and tractability for certain problem scopes, their primary limitation is the assumption of certainty, which may not hold in volatile RL environments. Contexts range from general product returns to specific applications like e-commerce and MSW management.}
 
-\subsection{Cluster 2: Stochastic Network Design Models}
-Stochastic models explicitly address uncertainty by incorporating probabilistic information about parameters like demand, return rates, or lead times. These models often aim to optimize the expected performance of the network or to satisfy service levels with a certain probability, providing more robust insights than purely deterministic approaches.
+\subsection{Stochastic Network Design Models}
+
+\paragraph{} Stochastic models explicitly address uncertainty by incorporating probabilistic information about parameters like demand, return rates, or lead times. These models often aim to optimize the expected performance of the network or to satisfy service levels with a certain probability, providing more robust insights than deterministic approaches.
 
 \subsubsection{Salema, Barbosa-Povoa, \& Novais (2007): An optimization model for the design of a capacitated multi-product reverse logistics network with uncertainty}
-\paragraph{Main Objective} To develop a generalized MILP model for designing a capacitated, multi-product reverse logistics network considering uncertainty in product demands and returns, extending Fleischmann et al.'s (2001) RNM.
-\paragraph{Methodology} An MILP formulation with a scenario-based approach for uncertainty. The objective minimizes expected total cost. Solved using B\&B (GAMS/CPLEX).
-\paragraph{Key Aspects of the Network Design}
-\begin{itemize}
-    \item \textbf{Echelons (Integrated):} Factories (production/return processing), Warehouses (forward), Customers (demand/return origin), Disassembly Centers (reverse). Includes a disposal option.
-    \item \textbf{Flows:} Multi-product. Forward (Factory $\rightarrow$ Warehouse $\rightarrow$ Customer) and Reverse (Customer $\rightarrow$ Disassembly Center $\rightarrow$ Factory/Disposal).
-    \item \textbf{Decisions:} Facility locations (factories, warehouses, disassembly centers - binary, not scenario-dependent); Flow allocations and non-satisfied demand/return fractions (scenario-dependent).
-    \item \textbf{Objective:} Minimize total expected costs (fixed opening + variable demand/return handling + penalties for non-satisfaction).
-    \item \textbf{Uncertainty:} Customer demand and return volumes are scenario-dependent with associated probabilities.
-    \item \textbf{Constraints:} Demand/return satisfaction (or penalty), factory balance (return $\le$ demand), min/max facility capacities (total throughput).
-\end{itemize}
-\paragraph{Solution Approach} MILP with scenarios, solved by GAMS/CPLEX.
-\paragraph{Key Findings} Model determines optimal network under uncertainty. Capacity constraints and multi-product nature significantly affect network structure.
-\paragraph{Contributions to Reverse Logistics Network Design}
-\begin{itemize}
-    \item Extends RNM by incorporating facility capacities, multi-product flows, and demand/return uncertainty via scenario-based stochastic programming.
-    \item Provides a generalized model for integrated forward-reverse networks under uncertainty.
-\end{itemize}
-\paragraph{Discussion within Cluster:} This work is a significant step from deterministic models by using a scenario-based stochastic programming approach to handle demand and return uncertainty in an integrated forward-reverse MILP. The objective is to minimize expected total costs. It highlights how considering uncertainty affects network structure, particularly regarding facility capacities and the number of open facilities.
+\paragraph{} Main objective is to develop a generalized MILP model for designing a capacitated, multi-product reverse logistics network considering uncertainty in product demands and returns, extending Fleischmann et al.'s (2001) RNM. An MILP formulation with a scenario-based approach for uncertainty. The objective minimizes expected total cost.
+
+\paragraph{} For the network design, echelons include factories, warehouses, customers, and disassembly centers. Flows are multi-product, with forward flows from factories to warehouses to customers and reverse flows from customers to disassembly centers to factories or disposal. Decisions include facility locations (factories, warehouses, disassembly centers), flow allocations, and non-satisfied demand/return fractions. The objective is to minimize total expected costs, including fixed opening costs, variable handling costs, and penalties for non-satisfaction. Uncertainty is modeled as scenario-dependent customer demand and return volumes with associated probabilities. Constraints ensure demand/return satisfaction, factory balance (returns $\le$ demand), and facility capacities.
+
+\paragraph{} Model determines optimal network under uncertainty. Capacity constraints and multi-product nature that affect network structure.
+
+\paragraph{} This work is a significant step from deterministic models by using a scenario-based stochastic programming approach to handle demand and return uncertainty in an integrated forward-reverse MILP. The objective is to minimize expected total costs.
 
 \subsubsection{Roghanian \& Pazhoheshfar (2014): An optimization model for reverse logistics network under stochastic environment by using genetic algorithm}
-\paragraph{Main Objective} To propose a probabilistic MILP for designing a multi-product, multi-stage reverse logistics network under uncertainty (stochastic demands), minimizing total fixed opening and shipping costs.
-\paragraph{Methodology} Probabilistic MILP where demands are random variables (normal distribution). Converted to a deterministic equivalent using chance constraints. Solved with a priority-based Genetic Algorithm (GA).
-\paragraph{Key Aspects of the Network Design}
-\begin{itemize}
-    \item \textbf{Echelons:} Returning centers, Disassembly centers, Processing centers, Manufacturing centers, Recycling centers.
-    \item \textbf{Flows:} Multi-product and multi-part. Products from returning to disassembly/processing. Parts from disassembly to processing/recycling. Processed parts to manufacturing/recycling.
-    \item \textbf{Decisions:} Which disassembly and processing centers to open; Transportation strategy.
-    \item \textbf{Objective:} Minimize total shipping costs + fixed opening costs.
-    \item \textbf{Stochasticity:} Demands at manufacturing/recycling centers are stochastic, handled via chance constraints (confidence level 1-$\alpha$).
-    \item \textbf{Constraints:} Facility capacities, flow balance, probabilistic demand satisfaction, limits on open facilities.
-\end{itemize}
-\paragraph{Solution Approach} Priority-based GA. Chromosome has six segments for flow priorities between echelons.
-\paragraph{Key Findings} GA finds feasible solutions for the stochastic network design.
-\paragraph{Contributions to Reverse Logistics Network Design}
-\begin{itemize}
-    \item Develops a multi-product, multi-stage RL network model with stochastic demands.
-    \item Converts probabilistic model to a deterministic equivalent.
-    \item Applies a priority-based GA for solution.
-\end{itemize}
-\paragraph{Discussion within Cluster:} Roghanian \& Pazhoheshfar (2014) also tackle demand uncertainty, but they use chance-constrained programming, converting the probabilistic model into a deterministic equivalent. This ensures that demand satisfaction constraints are met with a predefined confidence level. A priority-based Genetic Algorithm is used for solution, indicating the computational challenge of such stochastic models. The focus is on cost minimization in a purely reverse network.
+
+\paragraph{} Main objective is to propose a probabilistic MILP for designing a multi-product, multi-stage reverse logistics network under uncertainty (stochastic demands), minimizing total fixed opening and shipping costs.
+
+\paragraph{} Probabilistic MILP where demands are random variables. Converted to a deterministic equivalent using chance constraints. Solved with a priority-based Genetic Algorithm.
+
+\paragraph{} For the network design, echelons include return centers, disassembly centers, processing centers, manufacturing centers, and recycling centers. Flows are multi-product and multi-part, with products moving from returning to disassembly/processing centers, parts from disassembly to processing/recycling, and processed parts to manufacturing/recycling. Decisions include which disassembly and processing centers to open and the transportation strategy. The objective is to minimize total shipping costs plus fixed opening costs. Stochasticity arises from demands at manufacturing/recycling centers, handled via chance constraints. Constraints include facility capacities, flow balance, probabilistic demand satisfaction, and limits on open facilities.
+
+\paragraph{} Roghanian \& Pazhoheshfar (2014) also consider demand uncertainty, but they use chance-constrained programming, converting the probabilistic model into a deterministic equivalent. This ensures that demand satisfaction constraints are met with a predefined confidence level. A priority-based Genetic Algorithm is used for solution, indicating the computational challenge of such stochastic models.
 
 \subsubsection{Lieckens \& Vandaele (2007): Reverse logistics network design with stochastic lead times}
+
 \paragraph{Main Objective} To design an efficient single-product, single-level RL network by extending MILP models with queueing theory (G/G/1) to account for stochastic lead times, inventory, and uncertainty, maximizing yearly profit.
+
 \paragraph{Methodology} Extends MILP with G/G/1 queueing approximations for waiting times/inventory, resulting in an MINLP. Solved with a Genetic Algorithm based on Differential Evolution (DE).
+
 \paragraph{Key Aspects of the Network Design}
 \begin{itemize}
     \item \textbf{Echelons (Single-level):} Customer Locations (Disposer Markets - sources; Reuse Markets - sinks); Reprocessing/Recovery Facilities (intermediate).

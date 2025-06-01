@@ -4,4 +4,7 @@ A) Deterministic Network Design Models
 	3. Srivastava (2008): Network design for reverse logistics
 	4. Qian, Han, Da, & Stokes (2012): Reverse logistics network design model based on e-commerce
 	5. Ferri, Chaves, & Ribeiro (2015): Reverse logistics network for municipal solid waste management: The inclusion of waste pickers as a Brazilian legal requirement
-	6.
+	6.Salema, Barbosa-Povoa, & Novais (2007): An optimization model for the design of a capacitated multi-product reverse logistics network with uncertainty
+	7. Roghanian & Pazhoheshfar (2014): An optimization model for reverse logistics network under stochastic environment by using genetic algorithm
+	8. Lieckens & Vandaele (2007): Reverse logistics network design with stochastic lead times
+	9. 
