@@ -1,0 +1,237 @@
+\section{Review of Reverse Logistics Network Design Models}
+
+This section presents a detailed review of ten selected research articles focusing on network design for reverse logistics. The articles are grouped into three primary clusters based on their methodological approach to handling uncertainty: Deterministic Models, Stochastic Models, and Robust/Possibilistic Models. Within each cluster, the papers are analyzed in terms of their objectives, the environment or context they address (e.g., types of products, network echelons), key decision variables, mathematical modeling techniques, solution approaches, and their main contributions to the field.
+
+\subsection{Cluster 1: Deterministic Network Design Models}
+Deterministic models provide the foundational approach to network design, assuming that all parameters, such as return rates, costs, and capacities, are known with certainty. These models often focus on optimizing a single economic objective, typically cost minimization or profit maximization. While simplifying reality, they offer valuable insights into fundamental trade-offs and structural decisions. The complexity of these deterministic problems, especially for large-scale networks, often necessitates the use of heuristic or metaheuristic solution approaches.
+
+\subsubsection{Jayaraman, Patterson, \& Rolland (2003): The design of reverse distribution networks: Models and solution procedures}
+\paragraph{Main Objective} To develop models and efficient solution procedures for designing cost-minimizing reverse distribution networks for product returns.
+\paragraph{Methodology} A mixed-integer linear programming (MILP) model (``Model Refurb'') is proposed. Due to NP-hard nature, a heuristic solution methodology combining heuristic concentration and heuristic expansion (HE) is also developed.
+\paragraph{Key Aspects of the Network Design}
+\begin{itemize}
+    \item \textbf{Echelons:} Origination sites (product returns), optional Collection sites (consolidation, fixed cost), and Refurbishing sites (processing, fixed cost).
+    \item \textbf{Flows:} Products from origination sites, potentially via collection sites, to refurbishing sites. Direct shipment from origination to refurbishing is allowed.
+    \item \textbf{Decisions:} Which collection and refurbishing sites to open; allocation of product flows through the network.
+    \item \textbf{Objective:} Minimize total costs (variable transportation/processing + fixed facility opening costs).
+    \item \textbf{Constraints:} Include demand satisfaction, facility capacities, site opening logic, and limits on the number of open facilities.
+\end{itemize}
+\paragraph{Solution Approach} Heuristic procedure involving: 1) Random selection of site subsets, 2) Heuristic concentration to identify promising sites, 3) Heuristic Expansion (HE) for greedy improvement. An alternative deterministic heuristic (Procedure CC) is also presented. Subproblems solved using AMPL/CPLEX.
+\paragraph{Key Findings} Heuristic procedures, especially with HE, yield high-quality (often near-optimal) solutions much faster than exact methods for large problems. HE significantly improves initial heuristic solutions.
+\paragraph{Contributions to Reverse Logistics Network Design}
+\begin{itemize}
+    \item Provides a comprehensive MILP for multi-echelon reverse network design.
+    \item Develops and validates an effective heuristic (heuristic concentration + HE) for this complex problem.
+    \item Demonstrates practical utility for large-scale reverse logistics network design.
+\end{itemize}
+\paragraph{Discussion within Cluster:} Jayaraman et al. (2003) establish a comprehensive MILP for a multi-echelon reverse network, a common structure in this cluster. Their key contribution lies in not only formulating the problem but also in developing effective heuristics (heuristic concentration and expansion) to tackle its NP-hard nature, which is a recurring challenge even in deterministic settings when network complexity grows. The model focuses purely on the reverse flow, aiming to minimize costs associated with collection, processing, and facility establishment.
+
+\subsubsection{Min, Ko, \& Ko (2006): A genetic algorithm approach to developing the multi-echelon reverse logistics network for product returns}
+\paragraph{Main Objective} To develop a nonlinear mixed-integer programming (NLMIP) model and a Genetic Algorithm (GA) to design a cost-minimizing multi-echelon reverse logistics network for product returns, focusing on the number and location of initial collection points and centralized return centers (CRCs).
+\paragraph{Methodology} An NLMIP model is formulated to capture costs associated with product returns. A Genetic Algorithm (GA) is developed as the solution methodology due to the problem's complexity.
+\paragraph{Key Aspects of the Network Design}
+\begin{itemize}
+    \item \textbf{Echelons:} Customers (return origin); Initial Collection Points (ICPs, e.g., retail stores, rented space); Centralized Return Centers (CRCs, for inspection, sorting, consolidation); (Implicitly) Manufacturers/Repair facilities (final destination from CRCs).
+    \item \textbf{Flows:} Products from customers to ICPs; from ICPs to CRCs.
+    \item \textbf{Decisions:} Which ICPs to select/open ($Z_j$). Which CRCs to establish ($G_k$). Assignment of customers to ICPs ($Y_{ij}$). Quantity of products flowing from ICPs to CRCs ($X_{jk}$). Length of collection/consolidation period at ICPs ($T_j$).
+    \item \textbf{Objective:} Minimize total reverse logistics costs, including: renting costs for ICPs, inventory carrying costs at ICPs, establishment costs for CRCs, and shipping costs from ICPs to CRCs (which is a nonlinear function of volume, distance, and collection period $T_j$).
+    \item \textbf{Constraints:} Customer assignment, flow through open facilities, flow balance at ICPs, CRC capacity, maximum customer-to-ICP distance, minimum number of open ICPs and CRCs.
+\end{itemize}
+\paragraph{Solution Approach} A Genetic Algorithm (GA) with specific encoding for facility opening and collection periods, along with cloning, parent selection, crossover, and mutation operators. A fitness function incorporates the objective function and penalties for infeasibility.
+\paragraph{Key Findings} The GA effectively solves the NLMIP. Sensitivity analyses indicated that longer consolidation periods at ICPs reduce total costs, increased allowable customer-to-ICP distance reduces costs and ICP numbers, and total costs are highly sensitive to unit inventory carrying costs.
+\paragraph{Contributions to Reverse Logistics Network Design}
+\begin{itemize}
+    \item Presents an NLMIP model for product return networks, explicitly considering the trade-off between inventory holding costs (related to consolidation time $T_j$) and transportation costs.
+    \item Develops a GA tailored for this specific reverse logistics network design problem.
+    \item Provides insights into how operational parameters (consolidation period, service distance) affect network structure and costs.
+\end{itemize}
+\paragraph{Discussion within Cluster:} Similar to Jayaraman et al., this paper tackles a deterministic, cost-minimization problem for general returns. However, it introduces nonlinearity in the objective function to capture the complex relationship between inventory holding costs (dependent on consolidation periods) and volume-dependent freight rates. This necessitates a metaheuristic (Genetic Algorithm) for solution, showcasing how even deterministic models can require advanced solution techniques due to specific cost structures.
+
+\subsubsection{Srivastava (2008): Network design for reverse logistics}
+\paragraph{Main Objective} To develop an integrated, holistic conceptual framework and a corresponding mathematical model for designing a cost-effective and efficient multi-echelon, multi-period reverse logistics (RL) and value recovery network for product returns, specifically within the Indian context, emphasizing Green Supply Chain Management (GrSCM) principles.
+\paragraph{Methodology} The study combines descriptive modeling (based on literature and informal interviews with 84 stakeholders) with optimization techniques. A bi-level (hierarchical) optimization approach is used. The first level optimizes collection center locations. The second, main optimization model then determines disposition decisions, rework facility locations, capacities, and product routing. The model is formulated as a Mixed Integer Linear Program (MILP) and solved using GAMS with CPLEX.
+\paragraph{Key Aspects of the Network Design}
+\begin{itemize}
+    \item \textbf{Echelons:} Consumers (origin); Collection Centers (CCs); Rework Sites (Repair/Refurbishing Centers and Remanufacturing Centers); Markets (primary/secondary).
+    \item \textbf{Flows:} Multi-product returns (various grades). From customers to CCs, then to rework sites or sold directly. Reworked products/modules to markets.
+    \item \textbf{Decisions (Main Model):} Disposition at CCs; Location of rework sites; Capacity additions at rework sites (multi-period); Flows between echelons.
+    \item \textbf{Objective (Main Model):} Maximize profit (reselling revenue minus RL costs and resolution price).
+    \item \textbf{Constraints (Main Model):} Disposition logic, capacity balance, processing within limits, inventory balance.
+\end{itemize}
+\paragraph{Solution Approach} Hierarchical: 1) Simple optimization for CC location. 2) Main MILP (GAMS/CPLEX) for disposition, rework facility configuration, and flows.
+\paragraph{Key Findings} Remanufacturing often not economically viable in the Indian context; refurbishing dominates. Customer convenience and transport costs significantly impact network.
+\paragraph{Contributions to Reverse Logistics Network Design}
+\begin{itemize}
+    \item Provides a conceptual framework and hierarchical MILP for RL network design in a developing country context.
+    \item Distinguishes between repair/refurbishing and remanufacturing.
+    \item Incorporates multi-period capacity decisions for rework sites.
+\end{itemize}
+\paragraph{Discussion within Cluster:} This paper stands out in the deterministic cluster due to its hierarchical approach and broad contextual application in a developing economy. While the core optimization models (for collection center location and then rework facility configuration) are deterministic MILPs, the overall framework is more conceptual and considers a wider range of product types. The separation of decisions into levels is a pragmatic way to handle complexity but may lead to sub-optimal overall solutions compared to a monolithic model.
+
+\subsubsection{Qian, Han, Da, \& Stokes (2012): Reverse logistics network design model based on e-commerce}
+\paragraph{Main Objective} To study and propose a reverse logistics network design model specifically for e-commerce, aiming to minimize overall logistic costs by determining optimal locations for factories, online retailers, and third-party logistics providers (3PLs).
+\paragraph{Methodology} A 0-1 mixed-integer linear programming (0-1MILP) model is proposed. Demand/return determination is a separate step. A case study illustrates the model, solved with Lingo.
+\paragraph{Key Aspects of the Network Design}
+\begin{itemize}
+    \item \textbf{Echelons:} Factories, Online Retailers, 3PLs, Consuming Markets.
+    \item \textbf{Flows:} Forward (factory/3PL $\rightarrow$ online retailer $\rightarrow$ market) and Reverse (market $\rightarrow$ 3PL $\rightarrow$ factory/online retailer).
+    \item \textbf{Decisions:} Which factories, online retailers, and 3PLs to open/use; Flow fractions for demand and returns.
+    \item \textbf{Objective:} Minimize total logistical costs (fixed opening costs + transportation costs for forward/reverse flows).
+    \item \textbf{Constraints:} Flow balance, facility opening logic, capacity limits, minimum return portion to factories.
+\end{itemize}
+\paragraph{Solution Approach} 0-1MILP solved with Lingo. Demand/return quantities from a separate optimal return policy model.
+\paragraph{Key Findings} Model identifies optimal locations/flows. 3PLs centralize returns, routing to online retailers or factories.
+\paragraph{Contributions to Reverse Logistics Network Design}
+\begin{itemize}
+    \item Proposes a 0-1MILP for e-commerce RL, with 3PLs central to return collection.
+    \item Integrates an optimal return policy (determining demand/return quantities) as input.
+    \item Highlights trade-offs in routing returns to online retailers vs. factories via 3PLs.
+\end{itemize}
+\paragraph{Discussion within Cluster:} Qian et al. (2012) bring a specific application context (e-commerce) to the deterministic modeling cluster. Their 0-1MILP focuses on minimizing logistical costs by optimally locating facilities and routing returns. A distinctive feature is the explicit inclusion of 3PLs as central collectors, reflecting a common strategy in e-commerce RL. While demand and return determination is discussed as a separate, potentially uncertainty-laden step, the network design model itself uses these as deterministic inputs.
+
+\subsubsection{Ferri, Chaves, \& Ribeiro (2015): Reverse logistics network for municipal solid waste management: The inclusion of waste pickers as a Brazilian legal requirement}
+\paragraph{Main Objective} To propose and validate a reverse logistics network model for Municipal Solid Waste (MSW) management in Brazil, maximizing profit while incorporating legal requirements for waste picker inclusion and strategic Material Recovery Facility (MRF) allocation.
+\paragraph{Methodology} An MILP model is developed, validated via scenario analysis (São Mateus, Brazil), solved with CPLEX.
+\paragraph{Key Aspects of the Network Design}
+\begin{itemize}
+    \item \textbf{Echelons:} MSW Generation locations; Material Recovery Facilities (MRFs for MSW$_{R}$/MSW$_{G}$; waste picker associations as potential MRFs); Final Destinations (Landfills, Recycling Companies, Recycle Dealers).
+    \item \textbf{Flows:} MSW$_{R}$ (recyclable) and MSW$_{G}$ (general) to MRFs; sorted materials from MRFs to recyclers/dealers; refuse to landfills.
+    \item \textbf{Decisions:} Number, location, capacity of MRFs; MSW/sorted material flows.
+    \item \textbf{Objective:} Maximize total profit (recyclables sales revenue - transport and MRF installation/operation costs).
+    \item \textbf{Constraints:} All waste processed, MRF capacity limits, flow conservation, facility opening logic.
+\end{itemize}
+\paragraph{Solution Approach} MILP solved with CPLEX; scenario analysis for validation.
+\paragraph{Key Findings} Model optimizes MRF configuration. MRF inclusion (especially with waste pickers) reduces transport costs and aids formalization. Higher selective collection improves profitability.
+\paragraph{Contributions to Reverse Logistics Network Design}
+\begin{itemize}
+    \item Applies RL network design to MSW, integrating legal, social, and economic criteria.
+    \item Offers a planning tool for MSW systems in developing countries with a significant informal sector.
+    \item Highlights MRFs as crucial reverse consolidation points.
+\end{itemize}
+\paragraph{Discussion within Cluster:} This paper is notable for integrating social and legal constraints into a deterministic MILP framework for MSW. While the core optimization for a given operational scenario (e.g., a specific selective collection rate) is deterministic, the use of scenario analysis for validation allows for exploring the impact of different (but fixed within each scenario) parameters. The objective is profit maximization, considering revenues from recyclables and various costs. This work highlights how deterministic models can be adapted to specific socio-legal contexts.
+
+\paragraph{Synthesis of Deterministic Models:}
+The deterministic models reviewed provide essential building blocks for RL network design. They typically employ MILP or NLMIP formulations to optimize economic objectives like cost minimization (Jayaraman et al., Min et al., Qian et al.) or profit maximization (Ferri et al., Srivastava). Key decisions revolve around facility location (collection centers, rework/processing facilities) and flow allocation. Due to the combinatorial complexity, especially with many potential locations, heuristic and metaheuristic solution approaches (Jayaraman et al., Min et al.) are common. While these models offer clarity and tractability for certain problem scopes, their primary limitation is the assumption of certainty, which may not hold in volatile RL environments. Contexts range from general product returns to specific applications like e-commerce and MSW management.
+
+\subsection{Cluster 2: Stochastic Network Design Models}
+Stochastic models explicitly address uncertainty by incorporating probabilistic information about parameters like demand, return rates, or lead times. These models often aim to optimize the expected performance of the network or to satisfy service levels with a certain probability, providing more robust insights than purely deterministic approaches.
+
+\subsubsection{Salema, Barbosa-Povoa, \& Novais (2007): An optimization model for the design of a capacitated multi-product reverse logistics network with uncertainty}
+\paragraph{Main Objective} To develop a generalized MILP model for designing a capacitated, multi-product reverse logistics network considering uncertainty in product demands and returns, extending Fleischmann et al.'s (2001) RNM.
+\paragraph{Methodology} An MILP formulation with a scenario-based approach for uncertainty. The objective minimizes expected total cost. Solved using B\&B (GAMS/CPLEX).
+\paragraph{Key Aspects of the Network Design}
+\begin{itemize}
+    \item \textbf{Echelons (Integrated):} Factories (production/return processing), Warehouses (forward), Customers (demand/return origin), Disassembly Centers (reverse). Includes a disposal option.
+    \item \textbf{Flows:} Multi-product. Forward (Factory $\rightarrow$ Warehouse $\rightarrow$ Customer) and Reverse (Customer $\rightarrow$ Disassembly Center $\rightarrow$ Factory/Disposal).
+    \item \textbf{Decisions:} Facility locations (factories, warehouses, disassembly centers - binary, not scenario-dependent); Flow allocations and non-satisfied demand/return fractions (scenario-dependent).
+    \item \textbf{Objective:} Minimize total expected costs (fixed opening + variable demand/return handling + penalties for non-satisfaction).
+    \item \textbf{Uncertainty:} Customer demand and return volumes are scenario-dependent with associated probabilities.
+    \item \textbf{Constraints:} Demand/return satisfaction (or penalty), factory balance (return $\le$ demand), min/max facility capacities (total throughput).
+\end{itemize}
+\paragraph{Solution Approach} MILP with scenarios, solved by GAMS/CPLEX.
+\paragraph{Key Findings} Model determines optimal network under uncertainty. Capacity constraints and multi-product nature significantly affect network structure.
+\paragraph{Contributions to Reverse Logistics Network Design}
+\begin{itemize}
+    \item Extends RNM by incorporating facility capacities, multi-product flows, and demand/return uncertainty via scenario-based stochastic programming.
+    \item Provides a generalized model for integrated forward-reverse networks under uncertainty.
+\end{itemize}
+\paragraph{Discussion within Cluster:} This work is a significant step from deterministic models by using a scenario-based stochastic programming approach to handle demand and return uncertainty in an integrated forward-reverse MILP. The objective is to minimize expected total costs. It highlights how considering uncertainty affects network structure, particularly regarding facility capacities and the number of open facilities.
+
+\subsubsection{Roghanian \& Pazhoheshfar (2014): An optimization model for reverse logistics network under stochastic environment by using genetic algorithm}
+\paragraph{Main Objective} To propose a probabilistic MILP for designing a multi-product, multi-stage reverse logistics network under uncertainty (stochastic demands), minimizing total fixed opening and shipping costs.
+\paragraph{Methodology} Probabilistic MILP where demands are random variables (normal distribution). Converted to a deterministic equivalent using chance constraints. Solved with a priority-based Genetic Algorithm (GA).
+\paragraph{Key Aspects of the Network Design}
+\begin{itemize}
+    \item \textbf{Echelons:} Returning centers, Disassembly centers, Processing centers, Manufacturing centers, Recycling centers.
+    \item \textbf{Flows:} Multi-product and multi-part. Products from returning to disassembly/processing. Parts from disassembly to processing/recycling. Processed parts to manufacturing/recycling.
+    \item \textbf{Decisions:} Which disassembly and processing centers to open; Transportation strategy.
+    \item \textbf{Objective:} Minimize total shipping costs + fixed opening costs.
+    \item \textbf{Stochasticity:} Demands at manufacturing/recycling centers are stochastic, handled via chance constraints (confidence level 1-$\alpha$).
+    \item \textbf{Constraints:} Facility capacities, flow balance, probabilistic demand satisfaction, limits on open facilities.
+\end{itemize}
+\paragraph{Solution Approach} Priority-based GA. Chromosome has six segments for flow priorities between echelons.
+\paragraph{Key Findings} GA finds feasible solutions for the stochastic network design.
+\paragraph{Contributions to Reverse Logistics Network Design}
+\begin{itemize}
+    \item Develops a multi-product, multi-stage RL network model with stochastic demands.
+    \item Converts probabilistic model to a deterministic equivalent.
+    \item Applies a priority-based GA for solution.
+\end{itemize}
+\paragraph{Discussion within Cluster:} Roghanian \& Pazhoheshfar (2014) also tackle demand uncertainty, but they use chance-constrained programming, converting the probabilistic model into a deterministic equivalent. This ensures that demand satisfaction constraints are met with a predefined confidence level. A priority-based Genetic Algorithm is used for solution, indicating the computational challenge of such stochastic models. The focus is on cost minimization in a purely reverse network.
+
+\subsubsection{Lieckens \& Vandaele (2007): Reverse logistics network design with stochastic lead times}
+\paragraph{Main Objective} To design an efficient single-product, single-level RL network by extending MILP models with queueing theory (G/G/1) to account for stochastic lead times, inventory, and uncertainty, maximizing yearly profit.
+\paragraph{Methodology} Extends MILP with G/G/1 queueing approximations for waiting times/inventory, resulting in an MINLP. Solved with a Genetic Algorithm based on Differential Evolution (DE).
+\paragraph{Key Aspects of the Network Design}
+\begin{itemize}
+    \item \textbf{Echelons (Single-level):} Customer Locations (Disposer Markets - sources; Reuse Markets - sinks); Reprocessing/Recovery Facilities (intermediate).
+    \item \textbf{Flows:} Single product. Disposer Markets $\rightarrow$ Recovery Facilities $\rightarrow$ Reuse Markets. Disposal option at facilities.
+    \item \textbf{Decisions:} Which recovery facilities to open and at what capacity level; Flow allocations; Fractions of unsatisfied demand/uncollected returns.
+    \item \textbf{Objective:} Maximize total expected yearly profit (Revenue - fixed costs, reprocessing costs, transport, disposal, penalties, inventory holding costs).
+    \item \textbf{Stochasticity \& Queueing:} Variability in returns/reprocessing via SCV. G/G/1 queue approximations for $E(W_{Qi})$ and $E(N_i)$, leading to nonlinear inventory costs. Little's Law links cycle time to inventory.
+    \item \textbf{Constraints:} Flow balance, demand satisfaction, facility capacities, logical opening constraints.
+\end{itemize}
+\paragraph{Solution Approach} MINLP solved with DE-based GA.
+\paragraph{Key Findings} Incorporating queueing (inventory costs from lead times) yields different network configurations than traditional MILPs. Model relevant when inventory/lead time costs are significant. DE finds robust, near-optimal solutions.
+\paragraph{Contributions to Reverse Logistics Network Design}
+\begin{itemize}
+    \item Integrates queueing theory (G/G/1) into RL facility location to model stochastic lead times and their impact on inventory.
+    \item Formulates the problem as an MINLP capturing nonlinear utilization-lead time-inventory relationships.
+    \item Applies DE-based GA to solve the complex MINLP.
+\end{itemize}
+\paragraph{Discussion within Cluster:} This paper introduces a different type of stochasticity – operational variability (lead times, processing times) – rather than just quantity uncertainty. By using G/G/1 queue approximations, it captures the nonlinear impact of congestion and variability on inventory holding costs, a crucial aspect often overlooked. The objective is profit maximization, and a Differential Evolution based GA is used to solve the resulting MINLP. This highlights the need for specialized models when operational dynamics are critical.
+
+\paragraph{Synthesis of Stochastic Models:}
+The stochastic models in this cluster represent a significant advancement by explicitly incorporating uncertainty, primarily in demand/return quantities (Salema et al., Roghanian \& Pazhoheshfar) or operational times (Lieckens \& Vandaele). They typically optimize an expected value (e.g., expected cost) or ensure probabilistic constraint satisfaction. These models often result in more complex formulations (e.g., MINLPs when queueing is involved) and require sophisticated solution techniques like metaheuristics or specialized algorithms for scenario-based problems. They provide more realistic and potentially more robust network designs compared to deterministic counterparts.
+
+\subsection{Cluster 3: Robust and Possibilistic Network Design Models}
+When precise probability distributions for uncertain parameters are difficult to obtain, robust optimization and possibilistic programming offer alternative paradigms. Robust optimization seeks solutions that are immune to uncertainty or perform well under worst-case conditions, often without requiring probability data. Possibilistic programming uses fuzzy set theory to model imprecise parameters based on expert judgments.
+
+\subsubsection{Ramezani, Bashiri, \& Tavakkoli-Moghaddam (2013): A robust design for a closed-loop supply chain network under an uncertain environment}
+\paragraph{Main Objective} To present a robust design for a multi-product, multi-echelon closed-loop logistic network (CLSCN) where demand and return rates are uncertain (finite set of scenarios), maximizing total profit using a min-max regret criterion.
+\paragraph{Methodology} Deterministic MILP extended to a robust formulation (min-max regret). Solved using a scenario relaxation algorithm.
+\paragraph{Key Aspects of the Network Design}
+\begin{itemize}
+    \item \textbf{Echelons (Forward):} Suppliers, Plants, Distribution Centers, Customers.
+    \item \textbf{Echelons (Reverse):} Customers, Collection Centers, Repair Centers, Disposal Centers. Returns also to Plants (remanufacturing) or Suppliers (recycling). Repaired goods to Distribution Centers.
+    \item \textbf{Flows:} Multi-product.
+    \item \textbf{Decisions (Robust):} Facility location and capacity level selection (plants, distribution, collection, repair centers). (Second-stage flows are scenario-dependent).
+    \item \textbf{Objective (Robust):} Minimize maximum regret ($\delta$) across scenarios. Regret = (Optimal profit under scenario $s$) - (Profit of robust solution under scenario $s$).
+    \item \textbf{Uncertainty:} Demand and return rates are uncertain, modeled via finite scenarios.
+    \item \textbf{Constraints:} Flow balance, facility capacities, max number of open facilities, binary/non-negativity.
+\end{itemize}
+\paragraph{Solution Approach} Scenario relaxation algorithm for min-max regret robust optimization.
+\paragraph{Key Findings} Robust configuration is more reliable (feasible across more scenarios) than deterministic, though potentially less profitable under ideal conditions. Scenario relaxation is computationally superior to extensive form.
+\paragraph{Contributions to Reverse Logistics Network Design}
+\begin{itemize}
+    \item Develops a multi-product, multi-echelon CLSCN model.
+    \item Applies min-max regret robust optimization for demand/return uncertainty.
+    \item Implements scenario relaxation for efficient solution.
+\end{itemize}
+\paragraph{Discussion within Cluster:} This paper exemplifies the robust optimization approach by aiming to minimize the maximum regret, ensuring that the chosen network design performs well relative to the optimal solution under any realized scenario of demand and return rates. A scenario relaxation algorithm is employed to make the problem computationally tractable, which is a common need for robust models dealing with many scenarios. The focus is on creating a reliable network configuration.
+
+\subsubsection{Hamidieh \& Fazli-Khalaf (2017): A Possibilistic Reliable and Responsive Closed Loop Supply Chain Network Design Model under Uncertainty}
+\paragraph{Main Objective} To design a bi-objective, reliable, and responsive multi-echelon closed-loop supply chain network (CLSCN) minimizing total network costs and total earliness/tardiness, considering uncertainty (possibilistic programming) and facility disruptions (scenario-based).
+\paragraph{Methodology} Multi-objective linear program. Possibilistic programming (triangular fuzzy numbers from expert opinion) for uncertain parameters, converted to crisp equivalent. Scenario-based approach for distribution center disruptions. Solved with epsilon-constraint method.
+\paragraph{Key Aspects of the Network Design}
+\begin{itemize}
+    \item \textbf{Echelons (Forward):} Suppliers (original/recycled raw materials), Plants, Distribution Centers, Customer Zones.
+    \item \textbf{Echelons (Reverse):} Customer Zones, Collection/Inspection Centers, Refurbishing Centers, Recycling Centers, Disposal Centers. Recovered products to Distribution Centers; recycled raw materials to Plants.
+    \item \textbf{Flows:} Single product.
+    \item \textbf{Decisions:} Facility location and capacity level (plants, distribution, recycling centers); Flow quantities (scenario-dependent); Earliness/Tardiness.
+    \item \textbf{Objectives:} 1) Minimize total network costs (fixed opening + variable processing/transport, scenario-weighted). 2) Minimize total weighted earliness/tardiness (scenario-weighted).
+    \item \textbf{Uncertainty \& Reliability:} Possibilistic programming for uncertain costs/demands; Scenario-based disruptions at distribution centers; Min acceptable raw material quality.
+    \item \textbf{Constraints:} Demand satisfaction, flow balance, facility capacities (disruption-adjusted for DCs), quality, binary opening, non-negativity.
+\end{itemize}
+\paragraph{Solution Approach} Possibilistic model converted to crisp. Epsilon-constraint for bi-objective. CPLEX solver.
+\paragraph{Key Findings} Increasing risk-aversion (satisfaction levels) increases costs. Trade-off: cost minimization leads to centralized network, while earliness/tardiness minimization leads to decentralized.
+\paragraph{Contributions to Reverse Logistics Network Design}
+\begin{itemize}
+    \item Bi-objective CLSCN model integrating forward/reverse flows with reliability (disruptions) and responsiveness (earliness/tardiness).
+    \item Employs possibilistic programming for parameter uncertainty based on expert opinion.
+    \item Considers raw material quality.
+\end{itemize}
+\paragraph{Discussion within Cluster:} This work introduces possibilistic programming, which is useful when uncertainty is based on subjective expert knowledge rather than historical data. It models uncertain parameters as triangular fuzzy numbers. A key feature is its bi-objective nature, minimizing both total costs and earliness/tardiness, thus explicitly considering network responsiveness alongside economic efficiency and reliability (through disruption scenarios). The epsilon-constraint method is used to handle the multi-objectives.
+
+\paragraph{Synthesis of Robust and Possibilistic Models:}
+The articles in this cluster address uncertainty when probabilistic information is scarce or unreliable. Robust optimization (Ramezani et al.) focuses on performance guarantees against adversarial or worst-case scenarios, often leading to more conservative but highly reliable designs. Possibilistic programming (Hamidieh \& Fazli-Khalaf) offers a way to incorporate expert-based fuzzy uncertainty. These models are computationally demanding and often require specialized algorithms like scenario relaxation or multi-objective solution techniques. They are particularly valuable for strategic, long-term network design where downside risk protection is paramount.
