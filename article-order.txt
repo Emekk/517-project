@@ -1,0 +1,3 @@
+A) Deterministic Network Design Models
+	1. Jayaraman, Patterson, & Rolland (2003): The design of reverse distribution networks: Models and solution procedures
+	2. 

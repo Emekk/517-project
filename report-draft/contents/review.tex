@@ -1,30 +1,23 @@
 \section{Review of Reverse Logistics Network Design Models}
 
-This section presents a detailed review of ten selected research articles focusing on network design for reverse logistics. The articles are grouped into three primary clusters based on their methodological approach to handling uncertainty: Deterministic Models, Stochastic Models, and Robust/Possibilistic Models. Within each cluster, the papers are analyzed in terms of their objectives, the environment or context they address (e.g., types of products, network echelons), key decision variables, mathematical modeling techniques, solution approaches, and their main contributions to the field.
+\paragraph{} This section presents a detailed review of 10 selected articles focusing on network design for reverse logistics. The articles are clustered into three clusters based on their approach to uncertainty: Deterministic Models, Stochastic Models, and Robust/Possibilistic Models. Within each cluster, the papers are analyzed in terms of their objectives, the environment, crucial decision variables, modeling techniques, solution approaches, and their contributions to the field.
 
-\subsection{Cluster 1: Deterministic Network Design Models}
-Deterministic models provide the foundational approach to network design, assuming that all parameters, such as return rates, costs, and capacities, are known with certainty. These models often focus on optimizing a single economic objective, typically cost minimization or profit maximization. While simplifying reality, they offer valuable insights into fundamental trade-offs and structural decisions. The complexity of these deterministic problems, especially for large-scale networks, often necessitates the use of heuristic or metaheuristic solution approaches.
+\subsection{Deterministic Network Design Models}
+\paragraph{} Deterministic models provide a fundamental approach to network design, assuming that all parameters are known with certainty. These models mostly focus on optimizing a single objective, cost minimization or profit maximization. The complexity of these deterministic problems, especially for large-scale networks, often requires the use of heuristic solution approaches.
 
 \subsubsection{Jayaraman, Patterson, \& Rolland (2003): The design of reverse distribution networks: Models and solution procedures}
-\paragraph{Main Objective} To develop models and efficient solution procedures for designing cost-minimizing reverse distribution networks for product returns.
-\paragraph{Methodology} A mixed-integer linear programming (MILP) model (``Model Refurb'') is proposed. Due to NP-hard nature, a heuristic solution methodology combining heuristic concentration and heuristic expansion (HE) is also developed.
-\paragraph{Key Aspects of the Network Design}
-\begin{itemize}
-    \item \textbf{Echelons:} Origination sites (product returns), optional Collection sites (consolidation, fixed cost), and Refurbishing sites (processing, fixed cost).
-    \item \textbf{Flows:} Products from origination sites, potentially via collection sites, to refurbishing sites. Direct shipment from origination to refurbishing is allowed.
-    \item \textbf{Decisions:} Which collection and refurbishing sites to open; allocation of product flows through the network.
-    \item \textbf{Objective:} Minimize total costs (variable transportation/processing + fixed facility opening costs).
-    \item \textbf{Constraints:} Include demand satisfaction, facility capacities, site opening logic, and limits on the number of open facilities.
-\end{itemize}
-\paragraph{Solution Approach} Heuristic procedure involving: 1) Random selection of site subsets, 2) Heuristic concentration to identify promising sites, 3) Heuristic Expansion (HE) for greedy improvement. An alternative deterministic heuristic (Procedure CC) is also presented. Subproblems solved using AMPL/CPLEX.
-\paragraph{Key Findings} Heuristic procedures, especially with HE, yield high-quality (often near-optimal) solutions much faster than exact methods for large problems. HE significantly improves initial heuristic solutions.
-\paragraph{Contributions to Reverse Logistics Network Design}
-\begin{itemize}
-    \item Provides a comprehensive MILP for multi-echelon reverse network design.
-    \item Develops and validates an effective heuristic (heuristic concentration + HE) for this complex problem.
-    \item Demonstrates practical utility for large-scale reverse logistics network design.
-\end{itemize}
-\paragraph{Discussion within Cluster:} Jayaraman et al. (2003) establish a comprehensive MILP for a multi-echelon reverse network, a common structure in this cluster. Their key contribution lies in not only formulating the problem but also in developing effective heuristics (heuristic concentration and expansion) to tackle its NP-hard nature, which is a recurring challenge even in deterministic settings when network complexity grows. The model focuses purely on the reverse flow, aiming to minimize costs associated with collection, processing, and facility establishment.
+
+\paragraph{} Main objective is to develop models and efficient solution procedures for designing cost-minimizing reverse distribution networks for product returns.
+
+\paragraph{} A mixed-integer linear programming (MILP) model is proposed. Due to its NP-hard nature, a heuristic solution methodology combining heuristic concentration and heuristic expansion is also developed.
+
+\paragraph{} For the network design, echelons are collection sites, optional sites (intermediate warehouses/return centers), and re/manufacturing sites. The flows involve products moving from collection sites, potentially through intermediate sites, to re/manufacturing sites. Direct shipment from collection to re/manufacturing is allowed. The decisions include which collection and re/manufacturing sites to open, as well as the allocation of product flows through the network. The objective is to minimize total costs, which include variable transportation and processing costs, along with fixed costs. Constraints include demand, facility capacities, site opening.
+
+\paragraph{} For the solution approach, a heuristic procedure involving: random selection of site subsets, heuristic concentration to identify promising sites, and heuristic expansion for greedy improvement. An alternative deterministic heuristic (Procedure CC) is also presented. Subproblems solved using AMPL/CPLEX.
+
+\paragraph{} Heuristic procedures, especially with heuristic expansion, yield high-quality (often near-optimal) solutions much faster than exact methods for large problems. Heuristic expansion significantly improves initial heuristic solutions.
+
+\paragraph{} Jayaraman et al. (2003) establish a comprehensive MILP for a multi-echelon reverse network, which is a common structure in this cluster. Their contribution lies in not only formulating the problem but also in developing effective heuristics. The model focuses purely on the reverse flow, aiming to minimize costs associated with collection, processing, and site opening.
 
 \subsubsection{Min, Ko, \& Ko (2006): A genetic algorithm approach to developing the multi-echelon reverse logistics network for product returns}
 \paragraph{Main Objective} To develop a nonlinear mixed-integer programming (NLMIP) model and a Genetic Algorithm (GA) to design a cost-minimizing multi-echelon reverse logistics network for product returns, focusing on the number and location of initial collection points and centralized return centers (CRCs).
