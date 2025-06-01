@@ -20,25 +20,18 @@
 \paragraph{} Jayaraman et al. (2003) establish a comprehensive MILP for a multi-echelon reverse network, which is a common structure in this cluster. Their contribution lies in not only formulating the problem but also in developing effective heuristics. The model focuses purely on the reverse flow, aiming to minimize costs associated with collection, processing, and site opening.
 
 \subsubsection{Min, Ko, \& Ko (2006): A genetic algorithm approach to developing the multi-echelon reverse logistics network for product returns}
-\paragraph{Main Objective} To develop a nonlinear mixed-integer programming (NLMIP) model and a Genetic Algorithm (GA) to design a cost-minimizing multi-echelon reverse logistics network for product returns, focusing on the number and location of initial collection points and centralized return centers (CRCs).
-\paragraph{Methodology} An NLMIP model is formulated to capture costs associated with product returns. A Genetic Algorithm (GA) is developed as the solution methodology due to the problem's complexity.
-\paragraph{Key Aspects of the Network Design}
-\begin{itemize}
-    \item \textbf{Echelons:} Customers (return origin); Initial Collection Points (ICPs, e.g., retail stores, rented space); Centralized Return Centers (CRCs, for inspection, sorting, consolidation); (Implicitly) Manufacturers/Repair facilities (final destination from CRCs).
-    \item \textbf{Flows:} Products from customers to ICPs; from ICPs to CRCs.
-    \item \textbf{Decisions:} Which ICPs to select/open ($Z_j$). Which CRCs to establish ($G_k$). Assignment of customers to ICPs ($Y_{ij}$). Quantity of products flowing from ICPs to CRCs ($X_{jk}$). Length of collection/consolidation period at ICPs ($T_j$).
-    \item \textbf{Objective:} Minimize total reverse logistics costs, including: renting costs for ICPs, inventory carrying costs at ICPs, establishment costs for CRCs, and shipping costs from ICPs to CRCs (which is a nonlinear function of volume, distance, and collection period $T_j$).
-    \item \textbf{Constraints:} Customer assignment, flow through open facilities, flow balance at ICPs, CRC capacity, maximum customer-to-ICP distance, minimum number of open ICPs and CRCs.
-\end{itemize}
-\paragraph{Solution Approach} A Genetic Algorithm (GA) with specific encoding for facility opening and collection periods, along with cloning, parent selection, crossover, and mutation operators. A fitness function incorporates the objective function and penalties for infeasibility.
-\paragraph{Key Findings} The GA effectively solves the NLMIP. Sensitivity analyses indicated that longer consolidation periods at ICPs reduce total costs, increased allowable customer-to-ICP distance reduces costs and ICP numbers, and total costs are highly sensitive to unit inventory carrying costs.
-\paragraph{Contributions to Reverse Logistics Network Design}
-\begin{itemize}
-    \item Presents an NLMIP model for product return networks, explicitly considering the trade-off between inventory holding costs (related to consolidation time $T_j$) and transportation costs.
-    \item Develops a GA tailored for this specific reverse logistics network design problem.
-    \item Provides insights into how operational parameters (consolidation period, service distance) affect network structure and costs.
-\end{itemize}
-\paragraph{Discussion within Cluster:} Similar to Jayaraman et al., this paper tackles a deterministic, cost-minimization problem for general returns. However, it introduces nonlinearity in the objective function to capture the complex relationship between inventory holding costs (dependent on consolidation periods) and volume-dependent freight rates. This necessitates a metaheuristic (Genetic Algorithm) for solution, showcasing how even deterministic models can require advanced solution techniques due to specific cost structures.
+
+\paragraph{} Main objective is to develop a NLMIP model and a Genetic Algorithm to design a cost-minimizing multi-echelon reverse logistics network for product returns, focusing on the number and location of initial collection sites and centralized return centers (CRCs).
+
+\paragraph{} An NLMIP model is formulated to minimize costs associated with product returns. A Genetic Algorithm is developed as the solution methodology due to the problem's complexity.
+
+\paragraph{} The network design includes echelons such as customers, Initial Collection Points (ICPs), Centralized Return Centers (CRCs), and manufacturers/ repair facilities TODO (check if recover suitable). Flows involve products moving from customers to ICPs and from ICPs to CRCs. Decisions include which ICPs and CRCs to open, customer assignment to ICPs, product flow quantities from ICPs to CRCs, and the length of collection periods at ICPs. The objective is to minimize total reverse logistics costs, including renting costs for ICPs, inventory carrying opening costs for CRCs, and shipping costs from ICPs to CRCs. Constraints include customer assignment, flow through open facilities, flow balance at ICPs, CRC capacity, maximum customer to ICP distance, and minimum numbers of open ICPs and CRCs.
+
+\paragraph{} A Genetic Algorithm with specific encoding for facility opening and collection periods, along with cloning, parent selection, crossover, and mutation operators.
+
+\paragraph{} The Genetic Algorithm effectively solves the NLMIP. Sensitivity analyses indicated that longer consolidation periods at ICPs reduce total costs, increased allowable customer-to-ICP distance reduces costs and ICP numbers, and total costs are sensitive to unit inventory carrying costs.
+
+\paragraph{} Similar to Jayaraman et al., this paper considers a deterministic, cost-minimization problem for general returns. However, it introduces nonlinearity in the objective function to capture the relationship between inventory holding costs and order volume (enabling economies of scale).
 
 \subsubsection{Srivastava (2008): Network design for reverse logistics}
 \paragraph{Main Objective} To develop an integrated, holistic conceptual framework and a corresponding mathematical model for designing a cost-effective and efficient multi-echelon, multi-period reverse logistics (RL) and value recovery network for product returns, specifically within the Indian context, emphasizing Green Supply Chain Management (GrSCM) principles.
