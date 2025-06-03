@@ -26,6 +26,14 @@
 \usepackage[a4paper, margin=1in]{geometry}
 %\usepackage[toc, section=section]{glossaries}
 \usepackage[all]{hypcap}  % needed to help hyperlinks direct correctly
+\usepackage[
+  backend=biber,
+  style=apa,
+  sorting=nyt
+]{biblatex}
+
+\addbibresource{references.bib}
+\setlength\bibhang{0.5in} % hanging indent for bibliography
 
 % hyperlinks
 \hypersetup{
@@ -91,7 +99,10 @@
 \input{contents/gaps-and-shortcomings.tex}
 \input{contents/future-research-topics.tex}
 \input{contents/conclusion.tex}
-\input{contents/references.tex}
 
+\clearpage
+
+\nocite{*}
+\printbibliography
 
 \end{document}
