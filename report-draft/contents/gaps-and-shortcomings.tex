@@ -1,26 +1,21 @@
 \section{Gaps \& Shortcomings in Current Research}
 
-\paragraph{} The review of these 10 articles, while showcasing significant progress in modeling reverse logistics network design, also shows several gaps and shortcomings in the research. Addressing these limitations is important for developing more comprehensive, and realistic models.
+\paragraph{} Despite meaningful progress in reverse logistics network design, there are still several key limitations in the current research that deserve further attention.
 
 \begin{itemize}[label=,leftmargin=2mm]
-    \item \textbf{Limited Scope and Granularity of Uncertainty Modeling:}
-        A primary challenge in reverse logistics is the uncertainty. While many reviewed papers incorporate uncertainty, the focus is often restricted to a few parameters, typically the quantity and timing of returns, or demand for recovered products.
-        \begin{itemize}
-            \item \textit{Quality of Returns:} Most models simplify this variablity by assuming fixed recovery rates or a few discrete grades (e.g., Srivastava, 2008), without deeply modeling the stochastic nature of quality.
-            \item \textit{Processing Uncertainties:} Uncertainty in processing times, yields from disassembly or remanufacturing operations, and the success rates of repair/refurbishment are often overlooked or treated deterministically.
-            \item \textit{Disruptions:} While some models consider facility disruptions, the scope is often limited. Disruptions in transportation and supplier reliability for repair parts are less commonly addressed.
-        \end{itemize}
+    \item \textbf{Limited Range of Uncertainty Considered::}
+        Many studies address uncertainty, but often only in terms of return quantities or timing. Other critical sources of variability—like the quality of returned products, fluctuations in processing outcomes, or disruptions in transportation—are either oversimplified or ignored. For instance, while a few models assume discrete quality grades, the unpredictable nature of return quality is rarely modeled in depth. Similarly, real-world issues like delays in spare parts or vehicle availability are often left out.
 
-    \item \textbf{Predominantly Static Nature of Models:}
-        The majority of the reviewed network design models are static or single-period. Even those considering a longer horizon often do not explicitly model the dynamic evolution of the network or adaptive decision-making.
+    \item \textbf{Static, One-Time Decision Frameworks:}
+        Most models are built for single-period planning or assume static conditions. This doesn’t reflect how logistics networks evolve in practice. There’s a lack of dynamic frameworks where decisions can adapt over time in response to shifting demands, costs, or product types.
 
-    \item \textbf{Sustainability \& Social Dimensions:}
-        Although green supply chain management and environmental concerns are often cited as drivers for reverse logistics, the explicit incorporation of environmental metrics (beyond simple disposal costs or recycling rates) is limited. While some work touches on social aspects (e.g., waste picker inclusion by Ferri et al., 2015), broader social impacts like job creation quality, community health, or fair labor practices within the reverse logistics network are generally not part of the optimization.
+    \item \textbf{Overlooked Environmental and Social Metrics:}
+        Although reverse logistics is often tied to sustainability, explicit environmental metrics like carbon emissions, water use, or energy intensity are missing in most models. The same goes for social factors—aside from rare exceptions, topics such as labor practices, community impact, or informal workforce integration are not incorporated into the optimization frameworks.
 
-    \item \textbf{Simplification of Recovery Processes}
-        The models often abstract the details of various recovery operations. The specific processes, resource requirements, and cost structures associated with repair, refurbishment, remanufacturing, component harvesting, and different types of material recycling are usually aggregated. Handling a variety of heterogeneous returned products simultaneously in a detailed model remains a challenge.
+    \item \textbf{Simplification of Recovery Processes:}
+        Different recovery activities—repair, refurbishment, remanufacturing, disassembly, recycling—often get lumped into a single process in models. This doesn’t reflect the unique cost structures, success rates, or resource requirements of each recovery option. As a result, the models may not capture how real systems function.
 
-    \item \textbf{Scalability \& Practicality of Solution Approaches:}
-        Many of the comprehensive models formulated are NP-hard, making them computationally intensive for large, real-world instances using exact solvers. While heuristics and metaheuristics are proposed, there's a need for more efficient, scalable, and robust solution techniques that can provide better solutions.
+    \item \textbf{Challenges in Scalability and Application:}
+        Many of the proposed models, especially those involving uncertainty or multi-objective goals, are computationally heavy. This limits their usefulness in large, real-world settings unless more efficient or approximate solution methods are developed.
 \end{itemize}
 \paragraph{} These gaps highlight that while significant progress has been made, the field of reverse logistics network design still has room for improvement.
